@@ -182,7 +182,7 @@ class VoightKampffTest {
             testSection: document.getElementById('test'),
             resultSection: document.getElementById('result'),
             terminalBody: document.getElementById('terminal-body'),
-            progressBar: document.querySelector('.progress-bar::after'),
+            progressBar: document.getElementById('progressBar'),
             progressText: document.getElementById('progressText'),
             startBtn: document.getElementById('startBtn'),
             retryBtn: document.getElementById('retryBtn'),
@@ -266,10 +266,12 @@ class VoightKampffTest {
         
         // Exibe resultado
         let resultHTML = `
-            <h3>Seu perfil empático:</h3>
-            <p>${result.profile}</p>
+            <div class="result-profile" style="border-left: 4px solid ${result.color}; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Seu perfil empático:</h3>
+                <p style="font-size: 1.1rem;">${result.profile}</p>
+            </div>
             
-            <h3>Análise detalhada:</h3>
+            <h3 style="margin-bottom: 15px;">Análise detalhada:</h3>
             <ul class="response-list">
         `;
         
@@ -278,7 +280,7 @@ class VoightKampffTest {
                 <li>
                     <strong>Pergunta ${i+1}:</strong> ${r.question}<br>
                     <strong>Sua resposta:</strong> ${r.answer}<br>
-                    <em>${r.affirmation}</em>
+                    <em style="color: ${result.color};">${r.affirmation}</em>
                 </li>
             `;
         });
@@ -291,9 +293,9 @@ class VoightKampffTest {
     calculateResult() {
         // Lógica simplificada para determinar o perfil
         const empathyScore = this.responses.reduce((score, r) => {
-            if (r.affirmation.includes("empatia") || r.affirmation.includes("humanidade")) {
+            if (r.affirmation.includes("empatia") || r.affirmation.includes("humanidade") || r.affirmation.includes("igualitária")) {
                 return score + 2;
-            } else if (r.affirmation.includes("cético") || r.affirmation.includes("resistência")) {
+            } else if (r.affirmation.includes("cético") || r.affirmation.includes("resistência") || r.affirmation.includes("produtos")) {
                 return score - 1;
             }
             return score + 1;
@@ -336,7 +338,7 @@ class VoightKampffTest {
             <p>Este teste foi desenvolvido por <strong>Cristiano Paz</strong>, estudante do Colégio Estadual Padre Cláudio Morelli, como parte de um trabalho escolar sobre ética e inteligência artificial.</p>
             
             <p>Inspirado no teste fictício Voight-Kampff do universo Blade Runner, o projeto busca explorar questões filosóficas sobre:</p>
-            <ul>
+            <ul style="margin: 15px 0;">
                 <li>O que nos torna humanos?</li>
                 <li>Máquinas podem ter consciência?</li>
                 <li>Como devemos nos relacionar com inteligências artificiais?</li>
@@ -344,9 +346,9 @@ class VoightKampffTest {
             
             <p>O teste não tem validade científica, mas serve como ferramenta para reflexão sobre essas importantes questões que se tornam cada vez mais relevantes em nosso mundo tecnológico.</p>
             
-            <p><em>"Mais humano que o humano é nossa meta."</em> - Tyrell Corporation</p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--neon-blue);">"Mais humano que o humano é nossa meta." - Tyrell Corporation</p>
             
-            <button class="back-btn" id="backBtn">Voltar ao Resultado</button>
+            <button class="back-btn" id="backBtn" style="margin-top: 20px; padding: 8px 20px; background: var(--neon-orange); color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar ao Resultado</button>
         `;
         
         document.getElementById('backBtn').addEventListener('click', () => this.showResults());
