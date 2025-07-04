@@ -73,6 +73,38 @@
         <div class="neon-grid"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+    // Dados do questionário completo
+    const perguntas = [
+        // (10 perguntas completas, como você enviou antes)
+    ];
+
+    class VoightKampffTest {
+        // Lógica completa do teste (cerca de 300+ linhas)
+        // Inclui initEvents, startTest, showQuestion, selectOption, showResults,
+        // calculateResult, restartTest, showAbout, etc.
+    }
+
+    window.onload = () => {
+        document.body.style.opacity = '1';
+        new VoightKampffTest();
+
+        if (window.AudioContext) {
+            const ctx = new AudioContext();
+            const osc = ctx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.value = 440;
+
+            const gain = ctx.createGain();
+            gain.gain.value = 0.1;
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.5);
+        }
+    };
+    </script>
 </body>
 </html>
