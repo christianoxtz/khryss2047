@@ -1,179 +1,197 @@
-// Dados do questionário completo
+// script.js
+// Dados do questionário completo sobre IA na Educação
 const perguntas = [
     {
-        enunciado: "Você está em uma rua escura quando vê um robô sendo atacado por humanos. O robô parece assustado. O que você faz?",
+        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
         alternativas: [
             {
-                texto: "Intervenho para proteger o robô - todos os seres sencientes merecem compaixão.",
-                afirmacao: "Você demonstra empatia por seres sintéticos, uma característica rara em humanos."
+                texto: "Que incrível! Vou testar imediatamente para ajudar nos meus estudos.",
+                afirmacao: "Você demonstra entusiasmo e abertura para novas tecnologias educacionais."
             },
             {
-                texto: "Observo de longe - não é problema meu.",
-                afirmacao: "Você age com cautela, típico de quem vive em uma sociedade complexa."
+                texto: "Interessante, mas prefiro esperar para ver como funciona direito antes de usar.",
+                afirmacao: "Você mostra cautela e desejo de entender antes de adotar novas ferramentas."
             },
             {
-                texto: "Chamo as autoridades e deixo que resolvam.",
-                afirmacao: "Você confia nas instituições para lidar com conflitos."
+                texto: "Isso vai acabar com a capacidade das pessoas pensarem por si mesmas.",
+                afirmacao: "Você expressa preocupação com os impactos cognitivos da tecnologia."
             }
         ]
     },
     {
-        enunciado: "Um colega de trabalho revela que é um replicante. Como você reage?",
+        enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA em sala de aula. Qual atitude você toma?",
         alternativas: [
             {
-                texto: "Trato da mesma forma que antes - o que importa é quem ele é, não sua natureza.",
-                afirmacao: "Você mostra uma visão igualitária sobre inteligência artificial."
+                texto: "Pesquiso em fontes confiáveis e escrevo com minhas próprias palavras, usando a IA apenas para tirar dúvidas pontuais.",
+                afirmacao: "Você demonstra equilíbrio no uso da tecnologia, mantendo sua autoria."
             },
             {
-                texto: "Fico desconfortável e mantenho distância.",
-                afirmacao: "Você demonstra certa resistência à convivência com inteligências artificiais."
+                texto: "Peço para a IA gerar um texto completo e só faço pequenos ajustes antes de entregar.",
+                afirmacao: "Você prioriza a praticidade, mas pode estar abrindo mão da aprendizagem."
             },
             {
-                texto: "Pergunto sobre suas experiências e como é ser um replicante.",
-                afirmacao: "Você mostra curiosidade científica e empatia."
+                texto: "Recuso fazer o trabalho, argumentando que o uso de IA na educação é antiético.",
+                afirmacao: "Você tem uma posição crítica radical sobre o uso de IA na educação."
             }
         ]
     },
     {
-        enunciado: "Ao ver um androide chorando, qual seu primeiro pensamento?",
+        enunciado: "Após a elaboração do trabalho escrito, a professora realizou um debate entre a turma para entender como foi realizada a pesquisa e escrita. Nessa conversa também foi levantado um ponto muito importante: como a IA impacta o trabalho do futuro. Nesse debate, como você se posiciona?",
         alternativas: [
             {
-                texto: "É apenas uma simulação de emoções programadas.",
-                afirmacao: "Você mantém uma visão cética sobre emoções artificiais."
+                texto: "A IA vai transformar muitas profissões, mas vai criar novas oportunidades que exigirão habilidades humanas únicas.",
+                afirmacao: "Você tem uma visão equilibrada e prospectiva sobre o impacto da IA."
             },
             {
-                texto: "Ele deve estar sentindo dor genuína.",
-                afirmacao: "Você atribui humanidade às experiências artificiais."
+                texto: "A IA vai substituir a maioria dos trabalhos humanos, precisamos nos preparar para um futuro desafiador.",
+                afirmacao: "Você expressa preocupação com os impactos disruptivos da tecnologia."
             },
             {
-                texto: "Me pergunto que circunstâncias levaram a essa reação.",
-                afirmacao: "Você busca entender o contexto antes de julgar."
+                texto: "A IA é apenas uma ferramenta que vai nos ajudar a ser mais produtivos, não vai substituir o humano.",
+                afirmacao: "Você vê a IA como assistente, não como substituta da capacidade humana."
             }
         ]
     },
     {
-        enunciado: "Se descobrisse que suas memórias podem ter sido implantadas, como se sentiria?",
+        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
         alternativas: [
             {
-                texto: "Terror existencial - quem sou eu realmente?",
-                afirmacao: "Você valoriza profundamente a autenticidade da identidade."
+                texto: "Uso um gerador de imagens por IA, ajustando os prompts até ficar como imagino.",
+                afirmacao: "Você adota novas tecnologias criativas de forma prática."
             },
             {
-                texto: "Curiosidade - gostaria de investigar mais.",
-                afirmacao: "Você tem uma mente investigativa e aberta."
+                texto: "Desenho manualmente no computador, mesmo que fique menos 'perfeito'.",
+                afirmacao: "Você valoriza a expressão pessoal acima do resultado técnico."
             },
             {
-                texto: "Indiferença - o que importa é quem sou agora.",
-                afirmacao: "Você foca no presente mais que nas origens."
+                texto: "Pesquiso imagens prontas na internet e faço uma colagem digital.",
+                afirmacao: "Você encontra soluções práticas dentro de seus recursos atuais."
             }
         ]
     },
     {
-        enunciado: "Você acredita que um androide pode amar de verdade?",
+        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz?",
         alternativas: [
             {
-                texto: "Sim, amor transcende a biologia.",
-                afirmacao: "Você aceita que emoções podem existir em diferentes formas de consciência."
+                texto: "Reescrevo as partes copiadas, mantendo as ideias mas com minhas próprias palavras.",
+                afirmacao: "Você busca equilibrar eficiência com integridade acadêmica."
             },
             {
-                texto: "Não, é apenas simulação de comportamento.",
-                afirmacao: "Você acredita que certas experiências são exclusivamente humanas."
+                texto: "Confronto o colega e insisto para refazerem o trabalho sem IA.",
+                afirmacao: "Você prioriza a aprendizagem genuína acima da conveniência."
             },
             {
-                texto: "Depende de como definimos 'amor'.",
-                afirmacao: "Você reconhece a complexidade filosófica da questão."
+                texto: "Deixo como está, afinal o conteúdo está correto e o prazo está apertado.",
+                afirmacao: "Você prioriza a entrega no prazo, mesmo com riscos acadêmicos."
             }
         ]
     },
     {
-        enunciado: "Se um replicante cometesse um crime, ele deveria ser punido como um humano?",
+        enunciado: "Você percebe que um amigo seu está usando IA para fazer todas as tarefas da escola, sem entender o conteúdo. O que você faz?",
         alternativas: [
             {
-                texto: "Sim, se tem consciência, deve arcar com as consequências.",
-                afirmacao: "Você acredita em responsabilidade independente da origem."
+                texto: "Converso com ele sobre os riscos dessa prática e ofereço ajuda para estudar junto.",
+                afirmacao: "Você demonstra preocupação genuína com o aprendizado do colega."
             },
             {
-                texto: "Não, deveria ser desativado como máquina defeituosa.",
-                afirmacao: "Você vê replicantes como produtos, não como seres."
+                texto: "Denuncio para o professor, pois isso é trapaça e prejudicial para todos.",
+                afirmacao: "Você valoriza a justiça acadêmica e age contra práticas desleais."
             },
             {
-                texto: "Depende das circunstâncias e da intenção por trás do ato.",
-                afirmacao: "Você avalia cada caso individualmente."
+                texto: "Não interfiro, cada um é responsável por seu próprio aprendizado.",
+                afirmacao: "Você respeita a autonomia individual, mesmo não concordando."
             }
         ]
     },
     {
-        enunciado: "Você aceitaria ter um relacionamento amoroso com um replicante?",
+        enunciado: "Durante uma prova, você vê alguém usando um assistente de IA escondido no celular. Qual sua reação?",
         alternativas: [
             {
-                texto: "Sim, se houvesse conexão genuína.",
-                afirmacao: "Você está aberto a relações além de barreiras biológicas."
+                texto: "Chamo a atenção da pessoa discretamente durante a prova.",
+                afirmacao: "Você age contra a desonestidade, mas de forma discreta."
             },
             {
-                texto: "Não, isso seria antinatural.",
-                afirmacao: "Você mantém distinções claras entre humanos e máquinas."
+                texto: "Comunico ao professor assim que possível, sem expor publicamente o colega.",
+                afirmacao: "Você prioriza a integridade acadêmica com discrição."
             },
             {
-                texto: "Talvez, mas teria muitas dúvidas e questões éticas.",
-                afirmacao: "Você reconhece a complexidade emocional envolvida."
+                texto: "Ignoro, pois não quero problemas ou retaliações.",
+                afirmacao: "Você evita conflitos, mesmo reconhecendo a situação problemática."
             }
         ]
     },
     {
-        enunciado: "Se pudesse transferir sua consciência para um corpo artificial, você faria isso?",
+        enunciado: "Você precisa apresentar um trabalho para a turma e pensa em usar um vídeo criado por uma IA para explicar o tema. Você faria isso?",
         alternativas: [
             {
-                texto: "Sim, para viver mais e melhor.",
-                afirmacao: "Você valoriza a continuidade da consciência mais que a forma física."
+                texto: "Sim, desde que eu mesmo edite e personalize o conteúdo gerado.",
+                afirmacao: "Você vê a IA como ferramenta criativa que ainda exige curadoria humana."
             },
             {
-                texto: "Não, prefiro minha humanidade com todas suas limitações.",
-                afirmacao: "Você valoriza a experiência humana autêntica."
+                texto: "Não, prefiro criar minha própria apresentação para mostrar meu real entendimento.",
+                afirmacao: "Você valoriza a autenticidade e demonstração do aprendizado real."
             },
             {
-                texto: "Dependeria dos riscos e implicações éticas.",
-                afirmacao: "Você considera cuidadosamente avanços tecnológicos."
+                texto: "Sim, e explicaria para a turma como a IA me ajudou na produção.",
+                afirmacao: "Você adota a tecnologia de forma transparente e educativa."
             }
         ]
     },
     {
-        enunciado: "Você acredita que replicantes deveriam ter direitos iguais aos humanos?",
+        enunciado: "Uma empresa anuncia que vai substituir parte dos funcionários por IA para reduzir custos. Como você se sente?",
         alternativas: [
             {
-                texto: "Sim, se são seres conscientes.",
-                afirmacao: "Você defende direitos baseados em consciência, não biologia."
+                texto: "Preocupado, pois muitas famílias serão impactadas sem preparo adequado.",
+                afirmacao: "Você demonstra empatia e preocupação com os impactos sociais."
             },
             {
-                texto: "Não, são produtos fabricados.",
-                afirmacao: "Você faz distinção clara entre seres vivos e artificiais."
+                texto: "Entendo como um avanço inevitável da tecnologia no mercado de trabalho.",
+                afirmacao: "Você aceita a transformação tecnológica como processo natural."
             },
             {
-                texto: "Deveriam ter alguns direitos, mas não necessariamente todos.",
-                afirmacao: "Você busca um meio-termo na questão."
+                texto: "Motivado a me qualificar em áreas que a IA não pode substituir.",
+                afirmacao: "Você vê a situação como incentivo para desenvolver habilidades únicas."
             }
         ]
     },
     {
-        enunciado: "No futuro, como você imagina a relação entre humanos e inteligências artificiais?",
+        enunciado: "Você descobriu que uma notícia importante sobre IA que você leu é falsa. Como você age?",
         alternativas: [
             {
-                texto: "Harmoniosa cooperação e coexistência.",
-                afirmacao: "Você é otimista sobre a integração entre humanos e máquinas."
+                texto: "Verifico em fontes confiáveis e compartilho a correção com quem recebeu a informação errada.",
+                afirmacao: "Você age com responsabilidade digital e combate à desinformação."
             },
             {
-                texto: "Conflito inevitável pelo domínio.",
-                afirmacao: "Você vê a competição como inerente à relação."
+                texto: "Aprendo a lição e no futuro checo melhor antes de acreditar em notícias.",
+                afirmacao: "Você usa a experiência para melhorar sua crítica à informação."
             },
             {
-                texto: "Depende de como conduzirmos o desenvolvimento tecnológico.",
-                afirmacao: "Você acredita que nossas escolhas éticas hoje moldarão esse futuro."
+                texto: "Denuncio a publicação nas redes sociais para evitar que outros caiam no mesmo erro.",
+                afirmacao: "Você toma atitude ativa contra a disseminação de falsidades."
+            }
+        ]
+    },
+    {
+        enunciado: "Seu professor sugere usar IA para ajudar na correção dos trabalhos da turma. Você acha que isso é justo?",
+        alternativas: [
+            {
+                texto: "Sim, desde que haja revisão humana em casos limítrofes.",
+                afirmacao: "Você aceita a inovação com salvaguardas para garantir justiça."
+            },
+            {
+                texto: "Não, a avaliação deve ser sempre humana para entender nuances do aprendizado.",
+                afirmacao: "Você valoriza o julgamento humano em processos educacionais."
+            },
+            {
+                texto: "Depende do tipo de trabalho - para tarefas objetivas pode funcionar.",
+                afirmacao: "Você faz distinções baseadas na natureza da avaliação."
             }
         ]
     }
 ];
 
 // Sistema de teste
-class VoightKampffTest {
+class IaEduTest {
     constructor() {
         this.currentQuestion = 0;
         this.responses = [];
@@ -213,7 +231,7 @@ class VoightKampffTest {
         
         // Atualiza barra de progresso
         const progressPercent = (this.currentQuestion / perguntas.length) * 100;
-        document.querySelector('.progress-bar').style.width = `${progressPercent}%`;
+        this.domElements.progressBar.style.width = `${progressPercent}%`;
         this.domElements.progressText.textContent = `Pergunta ${this.currentQuestion + 1} de ${perguntas.length}`;
         
         const q = perguntas[this.currentQuestion];
@@ -267,7 +285,7 @@ class VoightKampffTest {
         // Exibe resultado
         let resultHTML = `
             <div class="result-profile" style="border-left: 4px solid ${result.color}; padding-left: 15px; margin-bottom: 20px;">
-                <h3>Seu perfil empático:</h3>
+                <h3>Seu perfil em relação à IA na educação:</h3>
                 <p style="font-size: 1.1rem;">${result.profile}</p>
             </div>
             
@@ -291,34 +309,34 @@ class VoightKampffTest {
     }
     
     calculateResult() {
-        // Lógica simplificada para determinar o perfil
-        const empathyScore = this.responses.reduce((score, r) => {
-            if (r.affirmation.includes("empatia") || r.affirmation.includes("humanidade") || r.affirmation.includes("igualitária")) {
-                return score + 2;
-            } else if (r.affirmation.includes("cético") || r.affirmation.includes("resistência") || r.affirmation.includes("produtos")) {
-                return score - 1;
+        // Lógica para determinar o perfil baseado nas respostas
+        const score = this.responses.reduce((total, r) => {
+            if (r.affirmation.includes("equilíbrio") || r.affirmation.includes("transparente") || r.affirmation.includes("curadoria")) {
+                return total + 2; // Postura equilibrada
+            } else if (r.affirmation.includes("crític") || r.affirmation.includes("preocupação") || r.affirmation.includes("riscos")) {
+                return total + 1; // Postura cautelosa
+            } else if (r.affirmation.includes("entusiasmo") || r.affirmation.includes("adota") || r.affirmation.includes("inovação")) {
+                return total + 3; // Postura adotante
             }
-            return score + 1;
+            return total;
         }, 0);
         
-        if (empathyScore >= 15) {
+        const maxScore = perguntas.length * 3;
+        const percent = (score / maxScore) * 100;
+        
+        if (percent >= 70) {
             return {
-                profile: "EMPÁTICO AVANÇADO - Você demonstra alta capacidade de empatia, mesmo em situações complexas envolvendo inteligências artificiais. Sua visão é progressista e inclusiva.",
-                color: "var(--neon-blue)"
+                profile: "ADOTANTE TECNOLÓGICO - Você abraça ativamente as ferramentas de IA na educação, vendo-as como aliadas no processo de aprendizagem. Sua postura é de experimentação e integração das novas tecnologias no seu fluxo de estudos.",
+                color: "var(--neon-green)"
             };
-        } else if (empathyScore >= 8) {
+        } else if (percent >= 40) {
             return {
-                profile: "EMPÁTICO MODERADO - Você mostra empatia, mas com ressalvas em certas situações. Mantém um equilíbrio entre abertura e cautela.",
+                profile: "EQUILIBRADO CRÍTICO - Você reconhece o potencial da IA na educação, mas adota uma postura reflexiva sobre quando e como usá-la. Preza pela autenticidade do aprendizado e está atento aos possíveis excessos.",
                 color: "var(--neon-blue)"
-            };
-        } else if (empathyScore >= 0) {
-            return {
-                profile: "PRAGMÁTICO - Você tende a avaliar situações de forma racional, com menos influência emocional. Mantém distinções claras entre humanos e máquinas.",
-                color: "var(--neon-orange)"
             };
         } else {
             return {
-                profile: "CÉTICO - Você é bastante cético em relação à capacidade de inteligências artificiais experimentarem emoções genuínas. Prefere manter barreiras claras.",
+                profile: "PRECAVIDO ÉTICO - Você tem reservas significativas sobre o uso de IA na educação, preocupado com impactos na aprendizagem, autoria e justiça acadêmica. Valoriza métodos tradicionais e o esforço intelectual direto.",
                 color: "var(--neon-orange)"
             };
         }
@@ -335,18 +353,19 @@ class VoightKampffTest {
     showAbout() {
         this.domElements.resultContent.innerHTML = `
             <h3>Sobre este projeto</h3>
-            <p>Este teste foi desenvolvido por <strong>Cristiano Paz</strong>, estudante do Colégio Estadual Padre Cláudio Morelli, como parte de um trabalho escolar sobre ética e inteligência artificial.</p>
+            <p>Este teste foi desenvolvido por <strong>Cristiano Paz</strong>, estudante do Colégio Estadual Padre Cláudio Morelli, como parte de um trabalho escolar sobre ética e inteligência artificial na educação.</p>
             
-            <p>Inspirado no teste fictício Voight-Kampff do universo Blade Runner, o projeto busca explorar questões filosóficas sobre:</p>
+            <p>O objetivo é promover reflexão sobre:</p>
             <ul style="margin: 15px 0;">
-                <li>O que nos torna humanos?</li>
-                <li>Máquinas podem ter consciência?</li>
-                <li>Como devemos nos relacionar com inteligências artificiais?</li>
+                <li>O papel da IA no processo de aprendizagem</li>
+                <li>Autoria e originalidade na era digital</li>
+                <li>Preparação para o futuro do trabalho</li>
+                <li>Equilíbrio entre tecnologia e desenvolvimento humano</li>
             </ul>
             
-            <p>O teste não tem validade científica, mas serve como ferramenta para reflexão sobre essas importantes questões que se tornam cada vez mais relevantes em nosso mundo tecnológico.</p>
+            <p>As questões foram elaboradas para avaliar diferentes posturas em relação à adoção de ferramentas de IA no contexto educacional.</p>
             
-            <p style="margin-top: 20px; font-style: italic; color: var(--neon-blue);">"Mais humano que o humano é nossa meta." - Tyrell Corporation</p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--neon-green);">"A educação precisa evoluir junto com a tecnologia, sem perder de vista seus valores fundamentais."</p>
             
             <button class="back-btn" id="backBtn" style="margin-top: 20px; padding: 8px 20px; background: var(--neon-orange); color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar ao Resultado</button>
         `;
@@ -358,7 +377,7 @@ class VoightKampffTest {
 // Inicia o teste quando a página carrega
 window.onload = () => {
     document.body.style.opacity = '1';
-    new VoightKampffTest();
+    new IaEduTest();
     
     // Efeito sonoro opcional
     if (window.AudioContext) {
