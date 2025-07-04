@@ -457,4 +457,73 @@ button {
 .about-btn:hover {
     background: rgba(0, 243, 255, 0.1);
     transform: translateY(-2px);
-    box-shadow: 0 5p
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--neon-blue);
+    }
+    20%, 24%, 55% {
+        opacity: 0.5;
+        text-shadow: none;
+    }
+}
+
+@keyframes scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1rem;
+    }
+    
+    .intro-section, .terminal, .result-card {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .author-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-icon {
+        margin-bottom: 1rem;
+    }
+    
+    .option-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .retry-btn, .about-btn {
+        width: 100%;
+    }
+}
