@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Empatia Voight-Kampff | Cristiano Paz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Introdução -->
+        <section class="intro-section" id="intro">
+            <div class="intro-content">
+                <img src="https://i.imgur.com/JYw7l3a.png" alt="Logo Voight-Kampff" class="logo">
+                <h1>Teste de Empatia Voight-Kampff</h1>
+                <h2>Trabalho Escolar de Filosofia e Ética</h2>
+                
+                <div class="author-info">
+                    <img src="https://i.imgur.com/3QZ2nQx.jpg" alt="Cristiano Paz" class="profile-pic">
+                    <div>
+                        <p><strong>Cristiano Paz</strong></p>
+                        <p>Estudante do Colégio Estadual Padre Cláudio Morelli</p>
+                        <p>Disciplina: Filosofia | Professor: [Nome do Professor]</p>
+                    </div>
+                </div>
+                
+                <div class="intro-text">
+                    <p>Este teste foi desenvolvido como parte de um trabalho escolar sobre ética e inteligência artificial, inspirado no teste fictício Voight-Kampff do universo Blade Runner.</p>
+                    <p>O objetivo é explorar questões sobre empatia, humanidade e a relação entre humanos e máquinas.</p>
+                </div>
+                
+                <button class="start-btn" id="startBtn">Iniciar Teste</button>
+            </div>
+        </section>
+
+        <!-- Teste -->
+        <section class="test-section" id="test" style="display:none;">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-title">VOIGHT-KAMPFF 2.1</div>
+                    <div class="terminal-year">2023</div>
+                </div>
+                
+                <div class="terminal-body" id="terminal-body">
+                    <!-- Conteúdo dinâmico será injetado aqui via JS -->
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span class="progress-text" id="progressText">Pergunta 1 de 10</span>
+            </div>
+        </section>
+
+        <!-- Resultado -->
+        <section class="result-section" id="result" style="display:none;">
+            <div class="result-card">
+                <h2>Resultado do Teste</h2>
+                <div class="result-content" id="resultContent">
+                    <!-- Resultado será injetado aqui -->
+                </div>
+                <div class="result-actions">
+                    <button class="retry-btn" id="retryBtn">Refazer Teste</button>
+                    <button class="about-btn" id="aboutBtn">Sobre o Projeto</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Efeitos de Fundo -->
+    <div class="background-effects">
+        <div class="digital-rain"></div>
+        <div class="neon-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
