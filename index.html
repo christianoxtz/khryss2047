@@ -3,55 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Silva | Desenvolvedor Web & UI/UX Designer | Portfólio</title>
+    <title>Cristiano Paz | Portfólio de Estudante | Colégio Padre Claudio Morelli</title>
     
-    <meta name="description" content="Portfólio de João Silva, Desenvolvedor Full-Stack e Designer UX/UI. Veja projetos, artigos técnicos e entre em contato.">
-    <meta name="keywords" content="Desenvolvedor, Full-Stack, UI/UX, JavaScript, React, Node.js, Portfólio, Blog">
-    <meta name="author" content="João Silva">
+    <meta name="description" content="Portfólio oficial de Cristiano Paz, estudante do Colégio Estadual Padre Claudio Morelli. Detalhes de projetos, notas, e habilidades em tecnologia e ciências.">
+    <meta name="keywords" content="Cristiano Paz, Padre Claudio Morelli, Colégio Estadual, Portfólio Estudantil, Projetos Escolares, Habilidades, Curitiba, Paraná">
+    <meta name="author" content="Cristiano Paz">
 
-    <meta property="og:title" content="João Silva | Portfólio Profissional">
-    <meta property="og:description" content="Portfólio de João Silva, Desenvolvedor Full-Stack e Designer UX/UI.">
+    <meta property="og:title" content="Cristiano Paz | Portfólio de Estudante">
+    <meta property="og:description" content="Conheça meus projetos escolares e habilidades!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.com.br">
-    <meta property="og:image" content="https://seusite.com.br/assets/images/preview.jpg"> 
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@seuusuario">
-    <meta name="twitter:title" content="João Silva | Portfólio Profissional">
+    <meta property="og:url" content="https://cristianopaz.com.br">
+    <meta property="og:image" content="https://cristianopaz.com.br/assets/images/cristiano-paz-preview.jpg"> 
 
     <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
+
     <link rel="stylesheet" href="./assets/css/main.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --color-primary: #007bff; /* Azul */
-            --color-secondary: #6c757d; /* Cinza */
-            --color-dark: #212529; /* Preto */
-            --color-light: #f8f9fa; /* Branco */
-            --font-main: 'Montserrat', sans-serif;
+            --color-primary: #6c5ce7; /* Roxo vibrante */
+            --color-secondary: #00cec9; /* Ciano/Azul claro */
+            --color-dark: #2d3436; /* Preto chumbo */
+            --color-light: #f5f6fa; /* Fundo claro */
+            --color-white: #ffffff;
+            --font-main: 'Poppins', sans-serif;
         }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-    <header class="header" role="banner" aria-label="Navegação Principal do Site">
+    <header class="header" role="banner" aria-label="Navegação Principal do Portfólio">
         <div class="container header-container">
-            <a href="#hero" class="logo" aria-label="Voltar à página inicial">JS.</a>
+            <a href="#hero" class="logo" aria-label="Voltar ao início do Portfólio">CP.</a>
             <nav class="nav" role="navigation">
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
-                    <span class="sr-only">Abrir Menu</span>
+                    <span class="sr-only">Alternar Menu</span>
                     <i class="icon-menu"></i>
                 </button>
                 <ul class="nav-list" id="main-menu">
-                    <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfólio</a></li>
-                    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link nav-link--cta">Contato</a></li>
+                    <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="#escola" class="nav-link">Escola & Notas</a></li>
+                    <li class="nav-item"><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li class="nav-item"><a href="#blog-notas" class="nav-link">Notas de Aula</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link nav-link--cta">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -59,125 +62,329 @@
 
     <main id="main-content" role="main">
 
-        <section id="hero" class="hero" aria-label="Introdução do Desenvolvedor">
+        <section id="inicio" class="hero" aria-label="Introdução do Estudante Cristiano Paz">
             <div class="container hero-container">
                 <div class="hero-text-content">
-                    <p class="hero-greeting">Olá, meu nome é João,</p>
-                    <h1 class="hero-title">Desenvolvedor Full-Stack &<br>UI/UX Designer</h1>
-                    <p class="hero-description">Transformando ideias em soluções digitais acessíveis e escaláveis. Especializado em JavaScript e tecnologias de ponta.</p>
+                    <p class="hero-greeting">Olá, sou</p>
+                    <h1 class="hero-title">Cristiano Paz</h1>
+                    <h2 class="hero-subtitle">Estudante, Inovador e Desenvolvedor Júnior.</h2>
+                    <div class="hero-bio">
+                        <p class="hero-description">Atualmente cursando o Ensino Médio no **Colégio Estadual Padre Claudio Morelli** em Curitiba/PR. Apaixonado por **Programação**, **Matemática** e **Desenvolvimento Web**. Busco transformar o conhecimento de sala de aula em projetos práticos.</p>
+                        <p class="hero-cta-text">Explore meu portfólio de projetos e conhecimentos acadêmicos!</p>
+                    </div>
                     <div class="hero-actions">
-                        <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+                        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                        <a href="./assets/documents/curriculo_cristiano_paz_simulado.pdf" target="_blank" class="btn btn-secondary">Baixar Perfil (PDF)</a>
                     </div>
                 </div>
                 <div class="hero-image-content">
-                    <picture>
-                        <source srcset="./assets/images/profile-large.webp" type="image/webp" media="(min-width: 768px)">
-                        <img src="./assets/images/profile-small.webp" alt="Foto de perfil profissional de João Silva" loading="lazy" width="400" height="400">
-                    </picture>
+                    <div class="image-placeholder">
+                        <img src="./assets/images/cristiano-paz-profile.webp" alt="Foto de perfil de Cristiano Paz" loading="lazy" width="450" height="450">
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://github.com/cristianopaz" target="_blank" aria-label="GitHub de Cristiano Paz"><i class="icon-github"></i></a>
+                        <a href="https://linkedin.com/in/cristianopaz" target="_blank" aria-label="LinkedIn de Cristiano Paz"><i class="icon-linkedin"></i></a>
+                        <a href="mailto:contato@cristianopaz.com.br" aria-label="E-mail de Contato"><i class="icon-email"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section id="about" class="about-section" aria-label="Informações detalhadas sobre João Silva">
+        <section id="escola" class="academic-section" aria-label="Informações sobre o Colégio Estadual Padre Claudio Morelli e notas">
             <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
-                <div class="about-content">
-                    <p>Comecei a programar há 10 anos, movido pela paixão por criar interfaces intuitivas. Minha jornada me levou do front-end com **React** ao back-end robusto com **Node.js** e **Python**. Acredito que a melhor tecnologia é aquela que o usuário mal percebe que está usando.
-                    </p>
-                    <h3>Minhas Habilidades Técnicas</h3>
-                    <ul class="skills-list">
-                        <li class="skill-item" data-skill="React">React & Redux</li>
-                        <li class="skill-item" data-skill="Node">Node.js & Express</li>
-                        <li class="skill-item" data-skill="Database">MongoDB & PostgreSQL</li>
-                        <li class="skill-item" data-skill="Design">Figma & Sketch (UI/UX)</li>
-                        <li class="skill-item" data-skill="Cloud">AWS & Docker</li>
-                    </ul>
-                    <a href="./assets/documents/curriculo_joao_silva.pdf" target="_blank" class="btn btn-tertiary">Baixar Currículo (PDF)</a>
+                <h2 class="section-title">Minha Jornada Acadêmica</h2>
+                <div class="school-info-card">
+                    <h3>Colégio Estadual Padre Claudio Morelli</h3>
+                    <p class="school-motto">"Educação de Qualidade, Focada no Futuro."</p>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <h4>Período</h4>
+                            <p>2º Ano do Ensino Médio (2025)</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Localização</h4>
+                            <p>Curitiba, Paraná, Brasil</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Foco</h4>
+                            <p>Ciências Exatas e Tecnologia</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Conquistas</h4>
+                            <p>Participação na Olimpíada Brasileira de Matemática (OBMEP) e Clube de Programação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Notas e Desempenho (Simulação)</h3>
+                <p class="notes-disclaimer">Os dados abaixo são simulados para fins de demonstração do portfólio.</p>
+                
+                <div class="grades-table-wrapper">
+                    <table class="grades-table" aria-label="Tabela de Notas do 2º Ano do Ensino Médio">
+                        <caption>Notas do 2º Ano - 1º e 2º Bimestre</caption>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Disciplina</th>
+                                <th colspan="2">1º Bimestre</th>
+                                <th colspan="2">2º Bimestre</th>
+                                <th rowspan="2">Média Parcial</th>
+                                <th rowspan="2">Status</th>
+                            </tr>
+                            <tr>
+                                <th>Nota (N1)</th>
+                                <th>Frequência</th>
+                                <th>Nota (N2)</th>
+                                <th>Frequência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matemática</td>
+                                <td>9.5</td>
+                                <td>100%</td>
+                                <td>9.8</td>
+                                <td>98%</td>
+                                <td>9.65</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Programação Web</td>
+                                <td>9.0</td>
+                                <td>100%</td>
+                                <td>9.3</td>
+                                <td>100%</td>
+                                <td>9.15</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Língua Portuguesa</td>
+                                <td>8.2</td>
+                                <td>95%</td>
+                                <td>8.5</td>
+                                <td>93%</td>
+                                <td>8.35</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Física</td>
+                                <td>7.8</td>
+                                <td>98%</td>
+                                <td>8.0</td>
+                                <td>95%</td>
+                                <td>7.90</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Química</td>
+                                <td>7.1</td>
+                                <td>90%</td>
+                                <td>7.5</td>
+                                <td>88%</td>
+                                <td>7.30</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Geografia</td>
+                                <td>8.5</td>
+                                <td>99%</td>
+                                <td>8.8</td>
+                                <td>97%</td>
+                                <td>8.65</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>História</td>
+                                <td>9.0</td>
+                                <td>98%</td>
+                                <td>9.1</td>
+                                <td>95%</td>
+                                <td>9.05</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Artes</td>
+                                <td>9.5</td>
+                                <td>100%</td>
+                                <td>9.7</td>
+                                <td>100%</td>
+                                <td>9.60</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Sociologia</td>
+                                <td>8.0</td>
+                                <td>90%</td>
+                                <td>8.2</td>
+                                <td>91%</td>
+                                <td>8.10</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                            <tr>
+                                <td>Filosofia</td>
+                                <td>7.9</td>
+                                <td>95%</td>
+                                <td>8.1</td>
+                                <td>93%</td>
+                                <td>8.00</td>
+                                <td class="status-approved">Aprovado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projetos" class="projects-section" aria-label="Meus principais projetos escolares e pessoais">
+            <div class="container">
+                <h2 class="section-title">Meus Projetos</h2>
+                <div class="project-filter" role="group" aria-label="Filtrar projetos por tipo">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos (100)</button>
+                    <button class="filter-btn" data-filter="tecnologia" aria-pressed="false">Tecnologia (40)</button>
+                    <button class="filter-btn" data-filter="ciencias" aria-pressed="false">Ciências/Exatas (30)</button>
+                    <button class="filter-btn" data-filter="humanas" aria-pressed="false">Humanas/Artes (30)</button>
+                </div>
+                
+                <div class="project-grid" id="project-list" aria-live="polite">
+                    <article class="project-card" data-category="tecnologia" tabindex="0" data-id="1">
+                        <a href="./projetos/projeto-app-simulado.html" aria-label="Ver detalhes do Projeto: App de Gerenciamento de Tarefas">
+                            <figure class="project-image-wrapper">
+                                <img src="./assets/images/proj-app-tarefas-thumb.jpg" alt="Miniatura do Projeto App de Tarefas" loading="lazy" width="300" height="200">
+                            </figure>
+                            <div class="project-content">
+                                <h3 class="project-title">001. App Gerenciador de Tarefas</h3>
+                                <p class="project-tags">HTML, CSS, JavaScript (Estudo)</p>
+                                <p class="project-description">Desenvolvido para organizar estudos e entregas do colégio.</p>
+                                <span class="project-date">Concluído: Jan/2025</span>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card" data-category="ciencias" tabindex="0" data-id="2">
+                        <a href="./projetos/projeto-experimento-fisica.html" aria-label="Ver detalhes do Projeto: Simulação de Pêndulo Simples">
+                            <figure class="project-image-wrapper">
+                                <img src="./assets/images/proj-pendulo-thumb.jpg" alt="Miniatura do Projeto Pêndulo Simples" loading="lazy" width="300" height="200">
+                            </figure>
+                            <div class="project-content">
+                                <h3 class="project-title">002. Simulação de Pêndulo Simples</h3>
+                                <p class="project-tags">Física, Python (Simulação)</p>
+                                <p class="project-description">Trabalho de Física para análise de movimento harmônico simples.</p>
+                                <span class="project-date">Concluído: Mar/2025</span>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card" data-category="humanas" tabindex="0" data-id="3">
+                        <a href="./projetos/projeto-ensaio-historia.html" aria-label="Ver detalhes do Projeto: Ensaio sobre a Revolução Industrial">
+                            <figure class="project-image-wrapper">
+                                <img src="./assets/images/proj-revolucao-thumb.jpg" alt="Miniatura do Ensaio sobre a Revolução Industrial" loading="lazy" width="300" height="200">
+                            </figure>
+                            <div class="project-content">
+                                <h3 class="project-title">003. Ensaio: Revolução Industrial e o Futuro do Trabalho</h3>
+                                <p class="project-tags">História, Sociologia</p>
+                                <p class="project-description">Análise das consequências sociais da automação.</p>
+                                <span class="project-date">Concluído: Abr/2025</span>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card" data-category="tecnologia" tabindex="0" data-id="98">
+                        <a href="./projetos/projeto-final-hackathon.html" aria-label="Ver detalhes do Projeto: Proposta de Sistema de Bibliotecas Inteligente">
+                            <figure class="project-image-wrapper">
+                                <img src="./assets/images/proj-biblioteca-thumb.jpg" alt="Miniatura do Projeto Biblioteca Inteligente" loading="lazy" width="300" height="200">
+                            </figure>
+                            <div class="project-content">
+                                <h3 class="project-title">098. Sistema de Bibliotecas Inteligente (Hackathon)</h3>
+                                <p class="project-tags">IA, Node.js, Banco de Dados</p>
+                                <p class="project-description">Proposta de gestão automatizada de acervo e empréstimos.</p>
+                                <span class="project-date">Concluído: Out/2025</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    </div> <div class="load-more-container">
+                    <button id="load-more-projects" class="btn btn-secondary" aria-live="polite">Carregar Mais Projetos (94 restantes)</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="habilidades" class="skills-section" aria-label="Minhas habilidades e ferramentas de tecnologia">
+            <div class="container">
+                <h2 class="section-title">Minhas Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Linguagens de Programação</h3>
+                        <ul class="skills-list">
+                            <li data-level="avancado">JavaScript (ES6+)</li>
+                            <li data-level="intermediario">Python</li>
+                            <li data-level="basico">Java</li>
+                            <li data-level="avancado">HTML5 & CSS3</li>
+                            <li data-level="intermediario">SQL (PostgreSQL)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Bibliotecas</h3>
+                        <ul class="skills-list">
+                            <li data-level="intermediario">React (Básico)</li>
+                            <li data-level="avancado">Node.js (Básico/Express)</li>
+                            <li data-level="intermediario">Tailwind CSS (Estudo)</li>
+                            <li data-level="basico">jQuery (Legado)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Ferramentas & Outros</h3>
+                        <ul class="skills-list">
+                            <li data-level="avancado">Git & GitHub</li>
+                            <li data-level="intermediario">VS Code</li>
+                            <li data-level="avancado">Figma (UI/UX Básico)</li>
+                            <li data-level="intermediario">Linux (Terminal)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="portfolio-section" aria-label="Meus principais projetos de desenvolvimento">
+        <section id="blog-notas" class="blog-section" aria-label="Notas e resumos de aulas do colégio">
             <div class="container">
-                <h2 class="section-title">Projetos Recentes</h2>
-                <div class="portfolio-filter" role="group" aria-label="Filtrar projetos por categoria">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="web">Web Apps</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
-                </div>
-                
-                <div class="portfolio-grid" id="project-list" aria-live="polite">
-                    <article class="project-card" data-category="web" tabindex="0">
-                        <a href="#" target="_blank" aria-label="Ver detalhes do Projeto Financeiro Pessoal">
-                            <img src="./assets/images/project-finance.jpg" alt="Captura de tela do Projeto Financeiro" loading="lazy">
-                            <h3 class="project-title">Sistema Financeiro Pessoal</h3>
-                            <p class="project-tags">React, Node.js, PostgreSQL</p>
+                <h2 class="section-title">Notas de Aula Recentes</h2>
+                <div class="notes-grid" id="latest-notes-list">
+                    <article class="note-card" tabindex="0">
+                        <a href="./notes/resumo-funcoes-matematicas.html">
+                            <h3 class="note-title">Resumo: Funções de Segundo Grau</h3>
+                            <p class="note-excerpt">Detalhes sobre parábolas, vértices e aplicação em problemas de otimização.</p>
+                            <span class="note-subject">Matemática (Prof. Ana)</span>
                         </a>
                     </article>
                     </div>
-
-                <div class="load-more-container">
-                    <button id="load-more-projects" class="btn btn-secondary" aria-live="polite">Carregar Mais Projetos</button>
-                </div>
             </div>
         </section>
 
-        <section id="blog" class="blog-section" aria-label="Últimos artigos e posts técnicos do blog">
+        <section id="contato" class="contact-section" aria-label="Formulário de contato para oportunidades e dúvidas">
             <div class="container">
-                <h2 class="section-title">Últimos Artigos</h2>
-                <div class="blog-grid" id="latest-posts-list">
-                    <article class="blog-post-card" tabindex="0">
-                        <a href="./blog/post-sobre-react-hooks.html" aria-label="Ler o artigo: Domínio dos React Hooks">
-                            <h3 class="post-title">Domínio dos React Hooks (UseState, UseEffect e Mais)</h3>
-                            <p class="post-excerpt">Um guia aprofundado sobre como usar os principais hooks para gerenciamento de estado e ciclo de vida em React.</p>
-                            <span class="post-date">10 de Novembro, 2025</span>
-                        </a>
-                    </article>
-                </div>
-                <div class="all-posts-link">
-                    <a href="./blog/index.html" class="link-tertiary">Ver todos os artigos &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section" aria-label="Formulário de contato e informações">
-            <div class="container">
-                <h2 class="section-title">Vamos Construir Algo Juntos?</h2>
-                <p class="section-subtitle">Estou aberto a novas oportunidades e projetos desafiadores. Envie-me uma mensagem!</p>
+                <h2 class="section-title">Vamos nos Conectar?</h2>
+                <p class="section-subtitle">Tenho interesse em oportunidades de estágio, projetos de código aberto e parcerias acadêmicas.</p>
                 
-                <form id="contact-form" class="contact-form" action="/submit-form" method="POST">
+                <form id="contact-form" class="contact-form" action="/api/submit-contact" method="POST">
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Seu nome">
+                        <input type="text" id="name" name="name" required placeholder="Seu nome" aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu.email@exemplo.com">
+                        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <input type="text" id="subject" name="subject" required aria-required="true" placeholder="O que gostaria de discutir?">
+                        <label for="institution">Instituição/Empresa (Opcional)</label>
+                        <input type="text" id="institution" name="institution" placeholder="Colégio Estadual ou Nome da Empresa">
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Detalhe sua proposta ou pergunta aqui..."></textarea>
+                        <label for="message">Mensagem Detalhada</label>
+                        <textarea id="message" name="message" rows="7" required placeholder="Detalhe sua proposta aqui..." aria-required="true"></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-submit" aria-live="assertive">Enviar Mensagem</button>
+                    <button type="submit" class="btn btn-primary btn-submit" aria-live="assertive">Enviar Mensagem Segura</button>
                     
                     <p id="form-message" class="form-message" role="status" aria-live="polite" hidden></p>
                 </form>
-
-                <div class="contact-info">
-                    <p>Ou, se preferir, me encontre nas redes:</p>
-                    <ul class="social-links" role="list">
-                        <li><a href="https://linkedin.com/in/joaosilva" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de João Silva"><i class="icon-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://github.com/joaosilva" target="_blank" rel="noopener noreferrer" aria-label="GitHub de João Silva"><i class="icon-github"></i> GitHub</a></li>
-                        <li><a href="mailto:contato@joaosilva.com.br" aria-label="E-mail de João Silva"><i class="icon-email"></i> contato@joaosilva.com.br</a></li>
-                    </ul>
-                </div>
             </div>
         </section>
 
@@ -186,19 +393,19 @@
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <div class="footer-copy">
-                <p>&copy; <span id="current-year">2025</span> João Silva. Todos os direitos reservados.</p>
-                <p>Desenvolvido com 💙 e código limpo.</p>
+                <p>&copy; <span id="current-year">2025</span> Cristiano Paz. Todos os direitos reservados.</p>
+                <p>Estudante do **Colégio Estadual Padre Claudio Morelli** (Turma 2025).</p>
             </div>
-            <nav class="footer-nav" aria-label="Links úteis no rodapé">
-                <a href="#">Política de Privacidade</a>
+            <nav class="footer-nav" aria-label="Links de Políticas e Documentação">
                 <a href="#">Termos de Uso</a>
+                <a href="#">Documentação do Código</a>
             </nav>
         </div>
     </footer>
 
     <script src="./assets/js/app.js" defer></script>
     <script>
-        // Pequeno script inline para definir o ano atual (Melhorando o TBT)
+        // Script simples para garantir que o ano do rodapé esteja correto
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
