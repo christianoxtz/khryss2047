@@ -3,642 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encerramento do Ano Letivo | Evento Corporativo Premium</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicon/site.webmanifest">
-    <meta name="description" content="Celebração de Encerramento do Ano Letivo. Uma retrospectiva elegante e um vislumbre do futuro. Evento corporativo exclusivo.">
-    <meta name="keywords" content="encerramento, ano letivo, evento corporativo, retrospectiva, celebração, premium, minimalista">
-    <meta name="author" content="Agência Premium Design">
-    <link rel="preload" href="/assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-    <script src="https://kit.fontawesome.com/c6e3b56a31.js" crossorigin="anonymous"></script>
+    <title>João Silva | Desenvolvedor Web & UI/UX Designer | Portfólio</title>
+    
+    <meta name="description" content="Portfólio de João Silva, Desenvolvedor Full-Stack e Designer UX/UI. Veja projetos, artigos técnicos e entre em contato.">
+    <meta name="keywords" content="Desenvolvedor, Full-Stack, UI/UX, JavaScript, React, Node.js, Portfólio, Blog">
+    <meta name="author" content="João Silva">
+
+    <meta property="og:title" content="João Silva | Portfólio Profissional">
+    <meta property="og:description" content="Portfólio de João Silva, Desenvolvedor Full-Stack e Designer UX/UI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com.br">
+    <meta property="og:image" content="https://seusite.com.br/assets/images/preview.jpg"> 
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@seuusuario">
+    <meta name="twitter:title" content="João Silva | Portfólio Profissional">
+
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #007bff; /* Azul */
+            --color-secondary: #6c757d; /* Cinza */
+            --color-dark: #212529; /* Preto */
+            --color-light: #f8f9fa; /* Branco */
+            --font-main: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
-<body class="theme-dark-premium">
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-    <div id="preloader" class="preloader-active">
-        <div class="preloader-spinner">
-            <svg class="spinner-svg" viewBox="0 0 50 50">
-                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
-            </svg>
-            <p class="loading-text">Carregando Experiência...</p>
-        </div>
-    </div>
-
-    <header id="mainHeader" class="header-main fixed-header" data-scroll-state="top">
-        <div class="header-container container">
-            <a href="#hero" class="logo-link smooth-scroll" aria-label="Voltar ao início">
-                <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="logo-path logo-path-A" d="M10 30L30 10L50 30H10Z" fill="#0E2B56"/>
-                    <path class="logo-path logo-path-B" d="M60 10V30H70V10H60Z" fill="white"/>
-                    <text x="80" y="25" font-family="'Poppins', sans-serif" font-size="20" fill="white" class="logo-text">INSTITUTO PREMIUM</text>
-                    <circle class="logo-dot" cx="170" cy="20" r="3" fill="#0E2B56"/>
-                    <title>Instituto Premium</title>
-                </svg>
-            </a>
-
-            <nav id="mainNav" class="nav-main">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#hero" class="nav-link smooth-scroll" data-menu-id="inicio">Início</a></li>
-                    <li class="nav-item"><a href="#countdown" class="nav-link smooth-scroll" data-menu-id="evento">Evento</a></li>
-                    <li class="nav-item"><a href="#retrospective" class="nav-link smooth-scroll" data-menu-id="retrospectiva">Retrospectiva</a></li>
-                    <li class="nav-item"><a href="#gallery" class="nav-link smooth-scroll" data-menu-id="galeria">Galeria</a></li>
-                    <li class="nav-item"><a href="#team" class="nav-link smooth-scroll" data-menu-id="equipe">Equipe</a></li>
-                    <li class="nav-item"><a href="#message" class="nav-link smooth-scroll" data-menu-id="mensagem">Mensagem Final</a></li>
+    <header class="header" role="banner" aria-label="Navegação Principal do Site">
+        <div class="container header-container">
+            <a href="#hero" class="logo" aria-label="Voltar à página inicial">JS.</a>
+            <nav class="nav" role="navigation">
+                <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
+                    <span class="sr-only">Abrir Menu</span>
+                    <i class="icon-menu"></i>
+                </button>
+                <ul class="nav-list" id="main-menu">
+                    <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link nav-link--cta">Contato</a></li>
                 </ul>
             </nav>
-
-            <a href="#contact" class="btn btn-primary btn-cta smooth-scroll">Confirmação de Presença</a>
-
-            <button id="hamburgerToggle" class="hamburger-menu" aria-label="Abrir menu de navegação">
-                <span class="bar bar-top"></span>
-                <span class="bar bar-middle"></span>
-                <span class="bar bar-bottom"></span>
-            </button>
         </div>
     </header>
 
-    <div id="mobileMenuOverlay" class="mobile-menu-overlay">
-        <nav class="mobile-nav-content">
-            <ul class="mobile-nav-list">
-                <li class="mobile-nav-item"><a href="#hero" class="mobile-nav-link smooth-scroll">Início</a></li>
-                <li class="mobile-nav-item"><a href="#countdown" class="mobile-nav-link smooth-scroll">O Evento</a></li>
-                <li class="mobile-nav-item"><a href="#retrospective" class="mobile-nav-link smooth-scroll">Retrospectiva</a></li>
-                <li class="mobile-nav-item"><a href="#gallery" class="mobile-nav-link smooth-scroll">Galeria de Destaques</a></li>
-                <li class="mobile-nav-item"><a href="#team" class="mobile-nav-link smooth-scroll">Nossa Equipe</a></li>
-                <li class="mobile-nav-item"><a href="#message" class="mobile-nav-link smooth-scroll">Mensagem Final</a></li>
-            </ul>
-            <div class="mobile-menu-footer">
-                <p class="footer-note">Instituto Premium © 2025. Excelência em Educação.</p>
-                <div class="social-links-mobile">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <main id="main-content" role="main">
 
-    <main id="mainContent" class="main-content">
-
-        <section id="hero" class="hero-section section-full-height dark-bg-gradient" role="banner">
+        <section id="hero" class="hero" aria-label="Introdução do Desenvolvedor">
             <div class="container hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title animate-fade-up" data-delay="0.2">A Celebração do Encerramento</h1>
-                    <p class="hero-subtitle animate-fade-up" data-delay="0.4">
-                        Conectando trajetórias. Projetando futuros.
+                <div class="hero-text-content">
+                    <p class="hero-greeting">Olá, meu nome é João,</p>
+                    <h1 class="hero-title">Desenvolvedor Full-Stack &<br>UI/UX Designer</h1>
+                    <p class="hero-description">Transformando ideias em soluções digitais acessíveis e escaláveis. Especializado em JavaScript e tecnologias de ponta.</p>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+                    </div>
+                </div>
+                <div class="hero-image-content">
+                    <picture>
+                        <source srcset="./assets/images/profile-large.webp" type="image/webp" media="(min-width: 768px)">
+                        <img src="./assets/images/profile-small.webp" alt="Foto de perfil profissional de João Silva" loading="lazy" width="400" height="400">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section" aria-label="Informações detalhadas sobre João Silva">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <p>Comecei a programar há 10 anos, movido pela paixão por criar interfaces intuitivas. Minha jornada me levou do front-end com **React** ao back-end robusto com **Node.js** e **Python**. Acredito que a melhor tecnologia é aquela que o usuário mal percebe que está usando.
                     </p>
-                    <div class="hero-cta-group animate-fade-up" data-delay="0.6">
-                        <a href="#countdown" class="btn btn-primary btn-xl smooth-scroll">Ver Detalhes do Evento</a>
-                        <a href="#retrospective" class="btn btn-secondary btn-xl smooth-scroll">Nossa Retrospectiva</a>
-                    </div>
+                    <h3>Minhas Habilidades Técnicas</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item" data-skill="React">React & Redux</li>
+                        <li class="skill-item" data-skill="Node">Node.js & Express</li>
+                        <li class="skill-item" data-skill="Database">MongoDB & PostgreSQL</li>
+                        <li class="skill-item" data-skill="Design">Figma & Sketch (UI/UX)</li>
+                        <li class="skill-item" data-skill="Cloud">AWS & Docker</li>
+                    </ul>
+                    <a href="./assets/documents/curriculo_joao_silva.pdf" target="_blank" class="btn btn-tertiary">Baixar Currículo (PDF)</a>
                 </div>
-                <div class="hero-animation-background">
-                    <svg class="abstract-shape-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="shape-path" cx="50" cy="50" r="45" fill="none" stroke="#0e2b5670" stroke-width="2" />
-                    </svg>
-                    <svg class="abstract-shape-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <polygon class="shape-path" points="50,10 90,90 10,90" fill="#0e2b5670" opacity="0.4" />
-                    </svg>
-                    </div>
             </div>
         </section>
-        
-        <section id="countdown" class="section section-padding bg-dark-alt" data-animation="fade-in">
+
+        <section id="portfolio" class="portfolio-section" aria-label="Meus principais projetos de desenvolvimento">
             <div class="container">
-                <h2 class="section-title text-center animate-blur-in">O Evento: Linha do Tempo e Detalhes</h2>
-                <div class="countdown-wrapper">
-                    <div id="countdownTimer" class="countdown-timer">
-                        <div class="timer-block animate-fade-left" data-delay="0.1"><span class="timer-value" data-unit="d">00</span><span class="timer-label">Dias</span></div>
-                        <div class="timer-block animate-fade-left" data-delay="0.2"><span class="timer-value" data-unit="h">00</span><span class="timer-label">Horas</span></div>
-                        <div class="timer-block animate-fade-right" data-delay="0.3"><span class="timer-value" data-unit="m">00</span><span class="timer-label">Minutos</span></div>
-                        <div class="timer-block animate-fade-right" data-delay="0.4"><span class="timer-value" data-unit="s">00</span><span class="timer-label">Segundos</span></div>
-                    </div>
-                    <p class="countdown-message text-center">Rumo à Celebração Inesquecível do Ano.</p>
-                </div>
-
-                <div class="stats-grid grid-3-cols">
-                    <div class="stat-item animate-fade-up" data-delay="0.7">
-                        <i class="fas fa-calendar-alt stat-icon"></i>
-                        <h3 class="stat-number">12. Dez. 2025</h3>
-                        <p class="stat-description">Data Oficial do Encerramento Solene.</p>
-                    </div>
-                    <div class="stat-item animate-fade-up" data-delay="0.9">
-                        <i class="fas fa-map-marker-alt stat-icon"></i>
-                        <h3 class="stat-number">Grand Hall Prime</h3>
-                        <p class="stat-description">Local Exclusivo (Acesso Privado).</p>
-                    </div>
-                    <div class="stat-item animate-fade-up" data-delay="1.1">
-                        <i class="fas fa-users stat-icon"></i>
-                        <h3 class="stat-number">450+</h3>
-                        <p class="stat-description">Convidados e Participantes Confirmados.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="retrospective" class="section section-padding bg-dark-main" data-animation="fade-in">
-            <div class="container">
-                <div class="retrospective-header text-center">
-                    <span class="section-tagline animate-fade-up">Jornada 2025</span>
-                    <h2 class="section-title animate-fade-up">Nossa Retrospectiva Animada</h2>
-                    <p class="section-description animate-fade-up">Os marcos, as conquistas e os momentos que definiram nosso ano de excelência.</p>
-                </div>
-
-                <div class="retrospective-carousel-container animate-fade-in" data-delay="0.8">
-                    <div id="retrospectiveCarousel" class="retrospective-carousel">
-                        
-                        <div class="carousel-slide slide-active" data-index="1">
-                            <div class="slide-content">
-                                <span class="slide-year-tag">Q1 | Lançamento</span>
-                                <h3 class="slide-title">Fevereiro: A Visão Se Materializa</h3>
-                                <p class="slide-text">Iniciamos o ano com a implantação de um novo framework pedagógico, focado em metodologias ativas e personalização. Um passo ousado, totalmente bem-sucedido.</p>
-                                <div class="slide-media-placeholder"></div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide" data-index="2">
-                            <div class="slide-content">
-                                <span class="slide-year-tag">Q2 | Expansão</span>
-                                <h3 class="slide-title">Junho: Seminário de Inovação Global</h3>
-                                <p class="slide-text">Recebemos 15 palestrantes internacionais no nosso Seminário Anual. Um recorde de público e impacto, gerando novas parcerias estratégicas.</p>
-                                <div class="slide-media-placeholder"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="carousel-slide" data-index="3">
-                            <div class="slide-content">
-                                <span class="slide-year-tag">Q3 | Consolidação</span>
-                                <h3 class="slide-title">Setembro: Indicadores Superiores</h3>
-                                <p class="slide-text">Alcançamos 98% de satisfação no feedback dos stakeholders, um testemunho do nosso compromisso com a qualidade e o rigor acadêmico.</p>
-                                <div class="slide-media-placeholder"></div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide" data-index="4">
-                            <div class="slide-content">
-                                <span class="slide-year-tag">Q4 | Celebração</span>
-                                <h3 class="slide-title">Novembro: Finalização de Projetos</h3>
-                                <p class="slide-text">Conclusão do Projeto Alpha, um marco em pesquisa e desenvolvimento, que será detalhado na cerimônia de encerramento.</p>
-                                <div class="slide-media-placeholder"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                    <div class="carousel-controls">
-                        <button class="carousel-prev btn-icon" aria-label="Slide Anterior"><i class="fas fa-chevron-left"></i></button>
-                        <div class="carousel-dots" id="retrospectiveDots">
-                            </div>
-                        <button class="carousel-next btn-icon" aria-label="Próximo Slide"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pillars" class="section section-padding bg-dark-alt" data-animation="fade-in">
-            <div class="container">
-                <h2 class="section-title text-center animate-fade-up">Pilares da Nossa Excelência</h2>
-                <p class="section-description text-center animate-fade-up">Os valores que nortearam cada conquista deste ciclo.</p>
-
-                <div class="pillars-grid grid-3-cols">
-                    
-                    <div class="pillar-card card-3d animate-fade-left" data-tilt-max="10">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-lightbulb card-icon icon-innovation"></i>
-                                <h3 class="card-title">Inovação Disruptiva</h3>
-                                <p class="card-short-desc">Pensamento à frente, aplicando tecnologias de ponta em todos os processos acadêmicos e corporativos.</p>
-                            </div>
-                            <div class="card-back">
-                                <h3 class="card-title-back">Detalhes da Inovação</h3>
-                                <p class="card-full-desc">Nosso laboratório de IA e a parceria com o Vale do Silício solidificaram a nossa posição como líderes em adoção de novas práticas. A curiosidade move o futuro.</p>
-                                <a href="#" class="btn btn-tertiary">Saber Mais</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pillar-card card-3d animate-fade-up" data-tilt-max="10">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-handshake card-icon icon-collaboration"></i>
-                                <h3 class="card-title">Colaboração Estratégica</h3>
-                                <p class="card-short-desc">Fomentamos uma rede de parceiros e *stakeholders* globais, ampliando o horizonte de oportunidades e influência.</p>
-                            </div>
-                            <div class="card-back">
-                                <h3 class="card-title-back">Detalhes da Colaboração</h3>
-                                <p class="card-full-desc">Mais de 50 acordos de cooperação internacional foram estabelecidos, permitindo o intercâmbio de conhecimento e o desenvolvimento de projetos interculturais de alto impacto.</p>
-                                <a href="#" class="btn btn-tertiary">Saber Mais</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pillar-card card-3d animate-fade-right" data-tilt-max="10">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-trophy card-icon icon-excellence"></i>
-                                <h3 class="card-title">Excelência Inegociável</h3>
-                                <p class="card-short-desc">Nosso compromisso com os mais altos padrões de qualidade em pesquisa, ensino e gestão administrativa.</p>
-                            </div>
-                            <div class="card-back">
-                                <h3 class="card-title-back">Detalhes da Excelência</h3>
-                                <p class="card-full-desc">A busca incessante por resultados notáveis é o que define o Instituto Premium. Investimos continuamente na qualificação do nosso corpo docente e na infraestrutura tecnológica.</p>
-                                <a href="#" class="btn btn-tertiary">Saber Mais</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <section id="gallery" class="section section-padding bg-dark-main" data-animation="fade-in">
-            <div class="container">
-                <h2 class="section-title text-center animate-fade-up">Galeria de Momentos Memoráveis</h2>
-                <p class="section-description text-center animate-fade-up">Uma seleção de imagens que capturam a essência do nosso ano.</p>
-
-                <div class="gallery-grid" id="mainGallery">
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="0.1" data-category="eventos">
-                        <img src="/assets/img/thumb-01.jpg" data-full-src="/assets/img/full-01.jpg" alt="Equipe de Projetos em Reunião Estratégica" class="gallery-img">
-                        <figcaption class="gallery-caption">Reunião Estratégica do Q2</figcaption>
-                        <div class="overlay-lightbox" data-title="Reunião Estratégica do Q2">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                    <figure class="gallery-item animate-fade-up" data-delay="0.2" data-category="academico">
-                        <img src="/assets/img/thumb-02.jpg" data-full-src="/assets/img/full-02.jpg" alt="Formatura Solene e Cerimônia" class="gallery-img">
-                        <figcaption class="gallery-caption">Cerimônia de Formatura</figcaption>
-                        <div class="overlay-lightbox" data-title="Cerimônia de Formatura">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                    <figure class="gallery-item animate-fade-up" data-delay="0.3" data-category="esporte">
-                        <img src="/assets/img/thumb-03.jpg" data-full-src="/assets/img/full-03.jpg" alt="Atividade de Team Building ao Ar Livre" class="gallery-img">
-                        <figcaption class="gallery-caption">Team Building e Liderança</figcaption>
-                        <div class="overlay-lightbox" data-title="Team Building e Liderança">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                    <figure class="gallery-item animate-fade-up" data-delay="0.4" data-category="evento">
-                        <img src="/assets/img/thumb-04.jpg" data-full-src="/assets/img/full-04.jpg" alt="Palestrante Internacional no Seminário" class="gallery-img">
-                        <figcaption class="gallery-caption">Seminário Global de Inovação</figcaption>
-                        <div class="overlay-lightbox" data-title="Seminário Global de Inovação">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                    <figure class="gallery-item animate-fade-up" data-delay="0.5" data-category="academico">
-                        <img src="/assets/img/thumb-05.jpg" data-full-src="/assets/img/full-05.jpg" alt="Laboratório de Tecnologia e Pesquisa" class="gallery-img">
-                        <figcaption class="gallery-caption">Laboratório de Pesquisa Avançada</figcaption>
-                        <div class="overlay-lightbox" data-title="Laboratório de Pesquisa Avançada">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                    <figure class="gallery-item animate-fade-up" data-delay="0.6" data-category="social">
-                        <img src="/assets/img/thumb-06.jpg" data-full-src="/assets/img/full-06.jpg" alt="Ação Social e Voluntariado" class="gallery-img">
-                        <figcaption class="gallery-caption">Projeto Social Anual</figcaption>
-                        <div class="overlay-lightbox" data-title="Projeto Social Anual">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="0.7" data-category="evento">
-                        <img src="/assets/img/thumb-07.jpg" data-full-src="/assets/img/full-07.jpg" alt="Coquetel de Networking" class="gallery-img">
-                        <figcaption class="gallery-caption">Coquetel de Networking Q3</figcaption>
-                        <div class="overlay-lightbox" data-title="Coquetel de Networking Q3">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="0.8" data-category="academico">
-                        <img src="/assets/img/thumb-08.jpg" data-full-src="/assets/img/full-08.jpg" alt="Sessão de Apresentação de TCCs" class="gallery-img">
-                        <figcaption class="gallery-caption">Apresentações Finais de TCC</figcaption>
-                        <div class="overlay-lightbox" data-title="Apresentações Finais de TCC">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="0.9" data-category="esporte">
-                        <img src="/assets/img/thumb-09.jpg" data-full-src="/assets/img/full-09.jpg" alt="Competição Esportiva Interinstitucional" class="gallery-img">
-                        <figcaption class="gallery-caption">Torneio Interinstitucional</figcaption>
-                        <div class="overlay-lightbox" data-title="Torneio Interinstitucional">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="1.0" data-category="social">
-                        <img src="/assets/img/thumb-10.jpg" data-full-src="/assets/img/full-10.jpg" alt="Jantar de Gala e Homenagens" class="gallery-img">
-                        <figcaption class="gallery-caption">Jantar de Gala e Premiações</figcaption>
-                        <div class="overlay-lightbox" data-title="Jantar de Gala e Premiações">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="1.1" data-category="academico">
-                        <img src="/assets/img/thumb-11.jpg" data-full-src="/assets/img/full-11.jpg" alt="Mesa Redonda com Especialistas" class="gallery-img">
-                        <figcaption class="gallery-caption">Mesa Redonda: Futuro da Tecnologia</figcaption>
-                        <div class="overlay-lightbox" data-title="Mesa Redonda: Futuro da Tecnologia">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-                    
-                    <figure class="gallery-item animate-fade-up" data-delay="1.2" data-category="evento">
-                        <img src="/assets/img/thumb-12.jpg" data-full-src="/assets/img/full-12.jpg" alt="Momento de Networking Informal" class="gallery-img">
-                        <figcaption class="gallery-caption">Momento de Conexão</figcaption>
-                        <div class="overlay-lightbox" data-title="Momento de Conexão">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                    </figure>
-
-                </div>
-
-                <div class="gallery-cta text-center animate-fade-up" data-delay="1.3">
-                    <button id="loadMoreGallery" class="btn btn-secondary-outline">Carregar Mais Momentos (12)</button>
-                </div>
-            </div>
-        </section>
-        
-        <section id="team" class="section section-padding bg-dark-alt" data-animation="fade-in">
-            <div class="container">
-                <h2 class="section-title text-center animate-fade-up">A Voz da Nossa Liderança</h2>
-                <p class="section-description text-center animate-fade-up">Mensagens e perspectivas dos líderes que guiaram nosso ano.</p>
-
-                <div class="team-carousel-wrapper">
-                    <div id="teamCarousel" class="team-carousel">
-                        
-                        <div class="team-member-card" data-index="1">
-                            <div class="member-photo-area"></div>
-                            <div class="member-details">
-                                <span class="member-role">CEO & Fundador</span>
-                                <h3 class="member-name">Dr. Arthur Vance</h3>
-                                <blockquote class="member-quote">"Este ano redefiniu o que é excelência. Vencemos os desafios com visão, e o futuro nos aguarda com inovações ainda maiores."</blockquote>
-                                <div class="member-social-links">
-                                    <a href="#" aria-label="LinkedIn Arthur Vance"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" aria-label="Email Arthur Vance"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="team-member-card" data-index="2">
-                            <div class="member-photo-area"></div>
-                            <div class="member-details">
-                                <span class="member-role">Diretora Acadêmica</span>
-                                <h3 class="member-name">Profa. Elisa Moraes</h3>
-                                <blockquote class="member-quote">"O crescimento do nosso corpo discente e a qualidade dos projetos apresentados confirmam que estamos no caminho certo para o impacto global."</blockquote>
-                                <div class="member-social-links">
-                                    <a href="#" aria-label="LinkedIn Elisa Moraes"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" aria-label="Email Elisa Moraes"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="team-member-card" data-index="3">
-                            <div class="member-photo-area"></div>
-                            <div class="member-details">
-                                <span class="member-role">Chefe de Inovação</span>
-                                <h3 class="member-name">Eng. Ricardo Santos</h3>
-                                <blockquote class="member-quote">"Investir em infraestrutura e IA não é custo, é estratégia. Estamos prontos para o futuro da educação e da tecnologia."</blockquote>
-                                <div class="member-social-links">
-                                    <a href="#" aria-label="LinkedIn Ricardo Santos"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" aria-label="Email Ricardo Santos"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="team-member-card" data-index="4">
-                            <div class="member-photo-area"></div>
-                            <div class="member-details">
-                                <span class="member-role">Gerente Financeiro Sênior</span>
-                                <h3 class="member-name">Sra. Vivian Costa</h3>
-                                <blockquote class="member-quote">"A solidez e a transparência financeira garantem a sustentabilidade das nossas ambições. Um ano de crescimento recorde e responsabilidade."</blockquote>
-                                <div class="member-social-links">
-                                    <a href="#" aria-label="LinkedIn Vivian Costa"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" aria-label="Email Vivian Costa"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="team-member-card" data-index="5">
-                            <div class="member-photo-area"></div>
-                            <div class="member-details">
-                                <span class="member-role">Coordenador Geral de Projetos</span>
-                                <h3 class="member-name">Dr. João Meireles</h3>
-                                <blockquote class="member-quote">"A execução disciplinada e a paixão da equipe foram a chave para entregar todos os projetos de 2025 com uma qualidade impecável. Parabéns a todos!"</blockquote>
-                                <div class="member-social-links">
-                                    <a href="#" aria-label="LinkedIn João Meireles"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" aria-label="Email João Meireles"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <button class="team-carousel-prev btn-nav-side" aria-label="Membro Anterior"><i class="fas fa-angle-left"></i></button>
-                    <button class="team-carousel-next btn-nav-side" aria-label="Próximo Membro"><i class="fas fa-angle-right"></i></button>
-                </div>
-
-                <div class="carousel-pagination text-center" id="teamPagination">
-                    <span class="current-slide-indicator">1</span> / <span class="total-slides-indicator">5</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="message" class="section section-padding bg-gradient-premium" data-animation="fade-in">
-            <div class="container message-container text-center">
-                <h2 class="section-title-inverted animate-fade-up">O Futuro Começa Agora</h2>
-                <p class="section-description-inverted message-quote animate-fade-up">
-                    "O sucesso é a soma de pequenos esforços — repetidos dia sim, e dia também.
-                    Encerramos um ciclo de grandes vitórias e lançamos um olhar entusiasmado para os desafios e inovações que 2026 nos trará.
-                    Agradecemos a cada membro, colaborador e parceiro por transformar a visão em realidade."
-                </p>
-                
-                <div class="message-signature animate-fade-up">
-                    <p class="signature-name">A Diretoria Executiva</p>
-                    <p class="signature-title">Instituto Premium</p>
-                </div>
-
-                <div class="cta-final-group animate-fade-up" data-delay="0.6">
-                    <a href="#contact" class="btn btn-light-outline btn-xl smooth-scroll">Confirme Sua Presença no Evento</a>
-                    <a href="documentos/relatorio-anual-2025.pdf" class="btn btn-tertiary-light" target="_blank">Baixar Relatório Anual (PDF)</a>
+                <h2 class="section-title">Projetos Recentes</h2>
+                <div class="portfolio-filter" role="group" aria-label="Filtrar projetos por categoria">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
                 </div>
                 
-                <svg class="message-bg-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path class="wave-path" d="M0,70 Q 25,60 50,70 T 100,70 V 100 H 0 Z" fill="rgba(255, 255, 255, 0.05)" />
-                    <circle class="spark-dot-1" cx="85" cy="15" r="2" fill="white" />
-                    <circle class="spark-dot-2" cx="15" cy="85" r="3" fill="white" />
-                </svg>
+                <div class="portfolio-grid" id="project-list" aria-live="polite">
+                    <article class="project-card" data-category="web" tabindex="0">
+                        <a href="#" target="_blank" aria-label="Ver detalhes do Projeto Financeiro Pessoal">
+                            <img src="./assets/images/project-finance.jpg" alt="Captura de tela do Projeto Financeiro" loading="lazy">
+                            <h3 class="project-title">Sistema Financeiro Pessoal</h3>
+                            <p class="project-tags">React, Node.js, PostgreSQL</p>
+                        </a>
+                    </article>
+                    </div>
+
+                <div class="load-more-container">
+                    <button id="load-more-projects" class="btn btn-secondary" aria-live="polite">Carregar Mais Projetos</button>
+                </div>
             </div>
         </section>
-        
-        <section id="contact" class="section section-padding bg-dark-alt" data-animation="fade-in">
-            <div class="container contact-grid grid-2-cols">
-                
-                <div class="contact-form-area animate-fade-left">
-                    <h3 class="form-title">Confirmação de Presença (RSVP)</h3>
-                    <p class="form-description">Preencha o formulário para garantir sua vaga na celebração.</p>
-                    <form id="rsvpForm" class="contact-form" action="/submit-rsvp" method="POST">
-                        <div class="form-group">
-                            <label for="fullName">Nome Completo</label>
-                            <input type="text" id="fullName" name="fullName" required placeholder="Seu nome e sobrenome">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail Corporativo</label>
-                            <input type="email" id="email" name="email" required placeholder="exemplo@instituto.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="attendance">Presença</label>
-                            <select id="attendance" name="attendance" required>
-                                <option value="" disabled selected>Selecione a Opção</option>
-                                <option value="confirm">Confirmo Minha Presença</option>
-                                <option value="tentative">Presença Tentativa (Informarei em breve)</option>
-                                <option value="decline">Não Poderei Comparecer</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Observações Adicionais (Opcional)</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Restrições alimentares, etc."></textarea>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Desejo receber atualizações do evento via e-mail.</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">Enviar Confirmação</button>
-                        
-                        <div id="formMessage" class="form-feedback-message" style="display: none;"></div>
-                    </form>
-                </div>
-                
-                <div class="location-map-area animate-fade-right">
-                    <h3 class="location-title">Local do Evento</h3>
-                    <p class="location-address">
-                        **Grand Hall Prime**<br>
-                        Avenida dos Pioneiros, 1234 - Bairro Nobre<br>
-                        Cidade Exemplo, Estado - CEP 00000-000
-                    </p>
-                    <div id="interactiveMap" class="map-placeholder">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150000.00!2d-46.00000!3d-23.00000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c1c9b3e10f%3A0x8f103d3c8f18731b!2sGrand%20Hall%20Prime!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
 
+        <section id="blog" class="blog-section" aria-label="Últimos artigos e posts técnicos do blog">
+            <div class="container">
+                <h2 class="section-title">Últimos Artigos</h2>
+                <div class="blog-grid" id="latest-posts-list">
+                    <article class="blog-post-card" tabindex="0">
+                        <a href="./blog/post-sobre-react-hooks.html" aria-label="Ler o artigo: Domínio dos React Hooks">
+                            <h3 class="post-title">Domínio dos React Hooks (UseState, UseEffect e Mais)</h3>
+                            <p class="post-excerpt">Um guia aprofundado sobre como usar os principais hooks para gerenciamento de estado e ciclo de vida em React.</p>
+                            <span class="post-date">10 de Novembro, 2025</span>
+                        </a>
+                    </article>
+                </div>
+                <div class="all-posts-link">
+                    <a href="./blog/index.html" class="link-tertiary">Ver todos os artigos &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section" aria-label="Formulário de contato e informações">
+            <div class="container">
+                <h2 class="section-title">Vamos Construir Algo Juntos?</h2>
+                <p class="section-subtitle">Estou aberto a novas oportunidades e projetos desafiadores. Envie-me uma mensagem!</p>
+                
+                <form id="contact-form" class="contact-form" action="/submit-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu.email@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required aria-required="true" placeholder="O que gostaria de discutir?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Detalhe sua proposta ou pergunta aqui..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-submit" aria-live="assertive">Enviar Mensagem</button>
+                    
+                    <p id="form-message" class="form-message" role="status" aria-live="polite" hidden></p>
+                </form>
+
+                <div class="contact-info">
+                    <p>Ou, se preferir, me encontre nas redes:</p>
+                    <ul class="social-links" role="list">
+                        <li><a href="https://linkedin.com/in/joaosilva" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de João Silva"><i class="icon-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/joaosilva" target="_blank" rel="noopener noreferrer" aria-label="GitHub de João Silva"><i class="icon-github"></i> GitHub</a></li>
+                        <li><a href="mailto:contato@joaosilva.com.br" aria-label="E-mail de João Silva"><i class="icon-email"></i> contato@joaosilva.com.br</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <div id="lightboxModal" class="lightbox-modal">
-        <div class="lightbox-content-wrapper">
-            <button class="lightbox-close-btn" aria-label="Fechar galeria"><i class="fas fa-times"></i></button>
-            <button class="lightbox-prev-btn" aria-label="Imagem Anterior"><i class="fas fa-chevron-left"></i></button>
-            <img src="" alt="Imagem em destaque da galeria" class="lightbox-img" id="lightboxImage">
-            <button class="lightbox-next-btn" aria-label="Próxima Imagem"><i class="fas fa-chevron-right"></i></button>
-            <div class="lightbox-caption" id="lightboxCaption">Título da Imagem</div>
-            <div class="lightbox-counter" id="lightboxCounter">1 de 12</div>
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-copy">
+                <p>&copy; <span id="current-year">2025</span> João Silva. Todos os direitos reservados.</p>
+                <p>Desenvolvido com 💙 e código limpo.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Links úteis no rodapé">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </nav>
         </div>
-    </div>
-    
-    <footer id="mainFooter" class="footer-main bg-dark-footer">
-        <div class="container footer-grid grid-4-cols">
-            
-            <div class="footer-col footer-col-info">
-                <a href="#hero" class="footer-logo-link smooth-scroll">
-                     <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="logo-path logo-path-A" d="M10 30L30 10L50 30H10Z" fill="#0E2B56"/>
-                        <path class="logo-path logo-path-B" d="M60 10V30H70V10H60Z" fill="white"/>
-                        <text x="80" y="25" font-family="'Poppins', sans-serif" font-size="20" fill="white" class="logo-text">INSTITUTO PREMIUM</text>
-                        <circle class="logo-dot" cx="170" cy="20" r="3" fill="#0E2B56"/>
-                        <title>Instituto Premium</title>
-                    </svg>
-                </a>
-                <p class="footer-mission">Comprometimento com a excelência, inovação e a formação de líderes globais desde 1998.</p>
-                <div class="footer-contact-details">
-                    <p><i class="fas fa-phone-alt"></i> (11) 98765-4321</p>
-                    <p><i class="fas fa-envelope"></i> contato@instituto.com</p>
-                </div>
-            </div>
-
-            <div class="footer-col footer-col-links">
-                <h4 class="footer-heading">Navegação Rápida</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#countdown" class="smooth-scroll">Detalhes do Evento</a></li>
-                    <li><a href="#retrospective" class="smooth-scroll">Retrospectiva 2025</a></li>
-                    <li><a href="#gallery" class="smooth-scroll">Galeria de Destaques</a></li>
-                    <li><a href="termos.html">Termos de Uso</a></li>
-                    <li><a href="privacidade.html">Política de Privacidade</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col footer-col-resources">
-                <h4 class="footer-heading">Recursos Úteis</h4>
-                <ul class="footer-links-list">
-                    <li><a href="documentos/relatorio-anual-2025.pdf" target="_blank">Relatório Anual PDF</a></li>
-                    <li><a href="faq.html">Perguntas Frequentes (FAQ)</a></li>
-                    <li><a href="carreiras.html">Carreiras e Oportunidades</a></li>
-                    <li><a href="imprensa.html">Área de Imprensa</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col footer-col-social">
-                <h4 class="footer-heading">Conecte-se Conosco</h4>
-                <div class="social-links-footer">
-                    <a href="#" class="social-icon-btn" aria-label="Acesse nosso LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon-btn" aria-label="Acesse nosso Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon-btn" aria-label="Acesse nosso Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon-btn" aria-label="Acesse nosso YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-                
-                <h4 class="footer-heading newsletter-heading">Newsletter Exclusiva</h4>
-                <form class="newsletter-form" action="/subscribe" method="POST">
-                    <input type="email" name="newsletterEmail" placeholder="Seu melhor e-mail..." required>
-                    <button type="submit" class="btn btn-primary-small" aria-label="Assinar Newsletter">Assinar</button>
-                </form>
-            </div>
-            
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container footer-bottom-container">
-                <p class="copyright-text">
-                    &copy; <span id="currentYear">2025</span> Instituto Premium. Todos os Direitos Reservados. 
-                    <span class="design-credit">| Design & Desenvolvimento por Agência Alpha Premium.</span>
-                </p>
-                <a href="#top" class="back-to-top-btn smooth-scroll" aria-label="Voltar ao topo da página">
-                    <i class="fas fa-arrow-up"></i>
-                </a>
-            </div>
-        </div>
-
     </footer>
 
-    <script src="script.js" defer></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="./assets/js/app.js" defer></script>
     <script>
-        // Inicialização do Tilt.js (será chamado também no JS principal)
-        VanillaTilt.init(document.querySelectorAll(".card-3d"), {
-            max: 10,
-            speed: 800,
-            perspective: 1000,
-            transition: true,
-            axis: null,
-            reset: true,
-            easing: "cubic-bezier(.03,.98,.52,.99)",
-            glare: true,
-            "max-glare": 0.3,
-            "glare-prerender": false,
-            "full-page-listening": true,
-            // mouse-event-element: null,
-            // gyroscope: true,
-            // gyroscopeMinAngleX: -45,
-            // gyroscopeMaxAngleX: 45,
-            // gyroscopeMinAngleY: -45,
-            // gyroscopeMaxAngleY: 45,
-            // gyroscopeSamples: 10
-        });
+        // Pequeno script inline para definir o ano atual (Melhorando o TBT)
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
