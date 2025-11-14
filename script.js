@@ -1,260 +1,754 @@
+/*
+=====================================================================================
+    SCRIPT.JS: INTERATIVIDADE AVANÇADA
+    Funcionalidades: Menu Hamburger, Smooth Scroll, Preloader, Contador Regressivo,
+    Animações ao Scroll (Intersection Observer), Carrosséis (Retrospectiva e Equipe),
+    Lightbox de Galeria, Formulário (Validação/Feedback).
+    Arquitetura: Modularizada com ES6+.
+=====================================================================================
+*/
+
 /**
- * FILE: js/script.js
- * PURPOSE: interatividade (menu mobile, carousel, lightbox, form validation, countdown)
- * Author: Christiano
- * Note: vanilla JS, small, documented with lightweight helpers.
+ * ================================================================================
+ * 1. MÓDULO DE UTILIDADES E INICIALIZAÇÃO DO DOM
+ * ================================================================================
+ */
+
+const DOM = {
+    // Header e Navegação
+    header: document.getElementById('mainHeader'),
+    hamburger: document.getElementById('hamburgerToggle'),
+    mobileMenu: document.getElementById('mobileMenuOverlay'),
+    navLinks: document.querySelectorAll('.nav-link, .mobile-nav-link'),
+    
+    // Animações
+    animatedElements: document.querySelectorAll('[data-animation]'),
+    
+    // Preloader
+    preloader: document.getElementById('preloader'),
+    
+    // Contador Regressivo
+    countdownTimer: document.getElementById('countdownTimer'),
+    
+    // Carrossel Retrospectiva
+    retrospectiveCarousel: document.getElementById('retrospectiveCarousel'),
+    retrospectiveDots: document.getElementById('retrospectiveDots'),
+    retrospectivePrev: document.querySelector('.carousel-prev'),
+    retrospectiveNext: document.querySelector('.carousel-next'),
+    
+    // Carrossel Equipe
+    teamCarousel: document.getElementById('teamCarousel'),
+    teamPrev: document.querySelector('.team-carousel-prev'),
+    teamNext: document.querySelector('.team-carousel-next'),
+    teamCurrentSlideIndicator: document.querySelector('.current-slide-indicator'),
+    teamTotalSlidesIndicator: document.querySelector('.total-slides-indicator'),
+    teamCards: document.querySelectorAll('#teamCarousel .team-member-card'),
+    
+    // Galeria e Lightbox
+    mainGallery: document.getElementById('mainGallery'),
+    galleryItems: document.querySelectorAll('.gallery-item'),
+    lightboxModal: document.getElementById('lightboxModal'),
+    lightboxImage: document.getElementById('lightboxImage'),
+    lightboxCaption: document.getElementById('lightboxCaption'),
+    lightboxCounter: document.getElementById('lightboxCounter'),
+    lightboxClose: document.querySelector('.lightbox-close-btn'),
+    lightboxPrev: document.querySelector('.lightbox-prev-btn'),
+    lightboxNext: document.querySelector('.lightbox-next-btn'),
+    
+    // Formulário
+    rsvpForm: document.getElementById('rsvpForm'),
+    formMessage: document.getElementById('formMessage'),
+};
+
+/**
+ * Função para configurar o ano atual no footer (microanimação)
+ */
+const setYear = () => {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+};
+
+/**
+ * ================================================================================
+ * 2. MÓDULO DE NAVEGAÇÃO E SCROLL
+ * ================================================================================
+ */
+
+const NavigationModule = (() => {
+    
+    /**
+     * Alterna o estado do menu hamburger/mobile.
+     */
+    const toggleMobileMenu = () => {
+        DOM.hamburger.classList.toggle('is-active');
+        DOM.mobileMenu.classList.toggle('is-open');
+        document.body.classList.toggle('no-scroll'); // Previne scroll no body
+    };
+
+    /**
+     * Manipula a classe do header ao rolar.
+     */
+    const handleScrollHeader = () => {
+        if (window.scrollY > 50) {
+            DOM.header.setAttribute('data-scroll-state', 'scrolled');
+        } else {
+            DOM.header.setAttribute('data-scroll-state', 'top');
+        }
+    };
+    
+    /**
+     * Smooth Scroll para âncoras internas.
+     */
+    const handleSmoothScroll = (event) => {
+        if (event.target.closest('.smooth-scroll')) {
+            event.preventDefault();
+            const targetId = event.target.closest('.smooth-scroll').getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Fechar menu mobile se estiver aberto
+                if (DOM.mobileMenu.classList.contains('is-open')) {
+                    toggleMobileMenu();
+                }
+                
+                // Opções de scroll suave e moderno
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Adicionar o hash na URL sem pular
+                history.pushState(null, '', `#${targetId}`);
+            }
+        }
+    };
+    
+    /**
+     * Marca o link ativo no menu (opcional: mais complexo e precisa de IntersectionObserver)
+     */
+    const setActiveLink = () => {
+        const sections = document.querySelectorAll('main section');
+        let currentActive = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - DOM.header.offsetHeight - 20; // Ajuste para header
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentActive = section.id;
+            }
+        });
+
+        DOM.navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(currentActive)) {
+                link.classList.add('active');
+            }
+        });
+    };
+    
+    /**
+     * Inicializa eventos de navegação.
+     */
+    const init = () => {
+        // Eventos do Menu Hamburger
+        DOM.hamburger.addEventListener('click', toggleMobileMenu);
+        
+        // Eventos de Scroll
+        window.addEventListener('scroll', handleScrollHeader);
+        window.addEventListener('scroll', setActiveLink);
+        
+        // Evento de Smooth Scroll
+        document.addEventListener('click', handleSmoothScroll);
+        
+        // Ativação inicial
+        handleScrollHeader();
+        setActiveLink();
+    };
+
+    return { init };
+})();
+
+/**
+ * ================================================================================
+ * 3. MÓDULO DE ANIMAÇÕES AO SCROLL (INTERSECTION OBSERVER)
+ * ================================================================================
+ */
+
+const ScrollAnimationModule = (() => {
+    
+    /**
+     * Callback para o Intersection Observer.
+     */
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe 'is-visible' para iniciar a transição CSS
+                entry.target.classList.add('is-visible');
+                
+                // Se houver delay, usa setTimeout
+                const delay = entry.target.getAttribute('data-delay');
+                if (delay) {
+                    setTimeout(() => {
+                         entry.target.classList.add('is-visible');
+                    }, parseFloat(delay) * 1000);
+                } else {
+                    entry.target.classList.add('is-visible');
+                }
+                
+                // Opcional: Para animações que só devem ocorrer uma vez
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    
+    /**
+     * Configuração do Intersection Observer.
+     */
+    const setupObserver = () => {
+        // Opções de observação: 15% do elemento visível
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.15 // 15% do elemento precisa estar visível
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observa todos os elementos que possuem a classe de animação
+        document.querySelectorAll('.animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-blur-in').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Observa as seções com data-animation (para efeitos de fundo ou mudanças de estado)
+        DOM.animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    };
+    
+    const init = () => {
+        setupObserver();
+    };
+
+    return { init };
+})();
+
+/**
+ * ================================================================================
+ * 4. MÓDULO DE CONTADOR REGRESSIVO
+ * ================================================================================
+ */
+
+const CountdownModule = (() => {
+    
+    // Data alvo: Exemplo 12 de Dezembro de 2025 às 20:00:00 (Fuso Brasil -3)
+    const targetDate = new Date('2025-12-12T20:00:00-03:00').getTime();
+
+    /**
+     * Formata um número para ter sempre 2 dígitos.
+     */
+    const formatTime = (value) => String(value).padStart(2, '0');
+
+    /**
+     * Atualiza o contador regressivo.
+     */
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            DOM.countdownTimer.innerHTML = '<span class="timer-final-message">EVENTO EM ANDAMENTO!</span>';
+            document.querySelector('.countdown-message').textContent = 'Celebre Conosco! O ano letivo está encerrado.';
+            return;
+        }
+
+        // Atualiza o DOM
+        DOM.countdownTimer.querySelector('[data-unit="d"]').textContent = formatTime(days);
+        DOM.countdownTimer.querySelector('[data-unit="h"]').textContent = formatTime(hours);
+        DOM.countdownTimer.querySelector('[data-unit="m"]').textContent = formatTime(minutes);
+        DOM.countdownTimer.querySelector('[data-unit="s"]').textContent = formatTime(seconds);
+    };
+
+    let countdownInterval;
+
+    const init = () => {
+        if (DOM.countdownTimer) {
+            updateCountdown(); // Chamada imediata para evitar "flash"
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+    };
+
+    return { init };
+})();
+
+/**
+ * ================================================================================
+ * 5. MÓDULO DE CARROSSÉIS
+ * ================================================================================
+ */
+
+const CarouselModule = (() => {
+
+    /**
+     * Controlador de Carrossel Reutilizável
+     * @param {HTMLElement} container - O elemento pai do carrossel (que contém os slides)
+     * @param {HTMLElement} prevBtn - Botão de slide anterior
+     * @param {HTMLElement} nextBtn - Botão de próximo slide
+     * @param {HTMLElement} dotContainer - Container para os pontos de navegação
+     * @param {boolean} isAutoplay - Define se deve haver autoplay
+     * @param {number} interval - Intervalo de autoplay em ms
+     * @param {HTMLElement} paginationIndicator - Elemento opcional para paginação 'X de Y'
+     */
+    class Carousel {
+        constructor(container, prevBtn, nextBtn, dotContainer, isAutoplay = false, interval = 5000, paginationIndicator = null) {
+            this.container = container;
+            this.slides = Array.from(container.children);
+            this.currentIndex = 0;
+            this.prevBtn = prevBtn;
+            this.nextBtn = nextBtn;
+            this.dotContainer = dotContainer;
+            this.isAutoplay = isAutoplay;
+            this.interval = interval;
+            this.paginationIndicator = paginationIndicator;
+            this.autoplayTimer = null;
+
+            if (this.slides.length > 0) {
+                this.setupDots();
+                this.updateUI();
+                this.addEventListeners();
+                if (this.isAutoplay) {
+                    this.startAutoplay();
+                }
+            }
+        }
+
+        setupDots() {
+            if (!this.dotContainer) return;
+            this.dotContainer.innerHTML = '';
+            this.slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.setAttribute('data-index', index);
+                dot.addEventListener('click', () => this.goToSlide(index));
+                this.dotContainer.appendChild(dot);
+            });
+            this.dots = Array.from(this.dotContainer.children);
+        }
+
+        goToSlide(index) {
+            // Lógica para controle de limites
+            if (index < 0) {
+                this.currentIndex = this.slides.length - 1;
+            } else if (index >= this.slides.length) {
+                this.currentIndex = 0;
+            } else {
+                this.currentIndex = index;
+            }
+
+            this.updateUI();
+            
+            // Se houver autoplay, resetar o timer ao navegar manualmente
+            if (this.isAutoplay) {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+        }
+
+        nextSlide() {
+            this.goToSlide(this.currentIndex + 1);
+        }
+
+        prevSlide() {
+            this.goToSlide(this.currentIndex - 1);
+        }
+
+        updateUI() {
+            // 1. Atualizar visibilidade/posição dos slides
+            // Para Retrospectiva (opacity/class-based):
+            if (this.container.id === 'retrospectiveCarousel') {
+                this.slides.forEach((slide, index) => {
+                    slide.classList.remove('slide-active');
+                    if (index === this.currentIndex) {
+                        slide.classList.add('slide-active');
+                    }
+                });
+            } 
+            // Para Equipe (transform/scroll-based):
+            else if (this.container.id === 'teamCarousel') {
+                // Scroll para a posição do slide atual
+                const scrollPosition = this.currentIndex * this.slides[0].offsetWidth + (this.currentIndex * 40); // 40px de gap
+                this.container.scroll({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+            }
+
+
+            // 2. Atualizar Dots
+            if (this.dotContainer) {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            // 3. Atualizar Paginação (se existir)
+            if (this.paginationIndicator) {
+                this.paginationIndicator.current.textContent = this.currentIndex + 1;
+                this.paginationIndicator.total.textContent = this.slides.length;
+            }
+        }
+
+        startAutoplay() {
+            if (this.isAutoplay) {
+                this.autoplayTimer = setInterval(() => this.nextSlide(), this.interval);
+            }
+        }
+
+        stopAutoplay() {
+            if (this.autoplayTimer) {
+                clearInterval(this.autoplayTimer);
+                this.autoplayTimer = null;
+            }
+        }
+
+        addEventListeners() {
+            if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
+            if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+            // Pausa o autoplay ao passar o mouse (UX premium)
+            this.container.addEventListener('mouseenter', () => this.stopAutoplay());
+            this.container.addEventListener('mouseleave', () => this.startAutoplay());
+        }
+    }
+
+    const init = () => {
+        // Inicializar Carrossel de Retrospectiva (Autoplay)
+        if (DOM.retrospectiveCarousel) {
+             new Carousel(
+                DOM.retrospectiveCarousel, 
+                DOM.retrospectivePrev, 
+                DOM.retrospectiveNext, 
+                DOM.retrospectiveDots, 
+                true, // Autoplay ativo
+                8000 // Intervalo de 8 segundos
+            );
+        }
+
+        // Inicializar Carrossel de Equipe (Manual)
+        if (DOM.teamCarousel) {
+            const teamPagination = {
+                current: DOM.teamCurrentSlideIndicator,
+                total: DOM.teamTotalSlidesIndicator
+            };
+            new Carousel(
+                DOM.teamCarousel, 
+                DOM.teamPrev, 
+                DOM.teamNext, 
+                null, // Sem dots para este carrossel
+                false, 
+                0, 
+                teamPagination
+            );
+        }
+    };
+
+    return { init };
+})();
+
+/**
+ * ================================================================================
+ * 6. MÓDULO DE GALERIA E LIGHTBOX
+ * ================================================================================
+ */
+
+const LightboxModule = (() => {
+
+    let currentGalleryIndex = 0;
+    const galleryImages = Array.from(DOM.galleryItems);
+    
+    /**
+     * Abre o lightbox na imagem específica.
+     */
+    const openLightbox = (index) => {
+        currentGalleryIndex = index;
+        const item = galleryImages[currentGalleryIndex];
+        
+        DOM.lightboxImage.src = item.querySelector('.gallery-img').getAttribute('data-full-src');
+        DOM.lightboxCaption.textContent = item.querySelector('.overlay-lightbox').getAttribute('data-title');
+        DOM.lightboxCounter.textContent = `${currentGalleryIndex + 1} de ${galleryImages.length}`;
+
+        DOM.lightboxModal.classList.add('is-open');
+        document.body.classList.add('no-scroll');
+        
+        // Foco no modal para acessibilidade
+        DOM.lightboxModal.focus(); 
+    };
+
+    /**
+     * Fecha o lightbox.
+     */
+    const closeLightbox = () => {
+        DOM.lightboxModal.classList.remove('is-open');
+        document.body.classList.remove('no-scroll');
+    };
+    
+    /**
+     * Navega para a próxima imagem.
+     */
+    const nextImage = () => {
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+        openLightbox(currentGalleryIndex);
+    };
+    
+    /**
+     * Navega para a imagem anterior.
+     */
+    const prevImage = () => {
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        openLightbox(currentGalleryIndex);
+    };
+
+    /**
+     * Adiciona ouvintes de evento para a galeria e o lightbox.
+     */
+    const addEventListeners = () => {
+        // Evento de clique na galeria para abrir o lightbox
+        galleryImages.forEach((item, index) => {
+            item.addEventListener('click', () => openLightbox(index));
+        });
+        
+        // Eventos do Modal
+        DOM.lightboxClose.addEventListener('click', closeLightbox);
+        DOM.lightboxNext.addEventListener('click', nextImage);
+        DOM.lightboxPrev.addEventListener('click', prevImage);
+        
+        // Fechar ao clicar fora (no fundo do modal)
+        DOM.lightboxModal.addEventListener('click', (e) => {
+            if (e.target === DOM.lightboxModal) {
+                closeLightbox();
+            }
+        });
+        
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && DOM.lightboxModal.classList.contains('is-open')) {
+                closeLightbox();
+            }
+            if (e.key === 'ArrowRight' && DOM.lightboxModal.classList.contains('is-open')) {
+                nextImage();
+            }
+            if (e.key === 'ArrowLeft' && DOM.lightboxModal.classList.contains('is-open')) {
+                prevImage();
+            }
+        });
+        
+        // Lógica de "Carregar Mais" (simulação)
+        const loadMoreBtn = document.getElementById('loadMoreGallery');
+        if (loadMoreBtn) {
+             loadMoreBtn.addEventListener('click', () => {
+                loadMoreBtn.textContent = 'Novos 12 Itens Carregados!';
+                loadMoreBtn.disabled = true;
+                // Em um projeto real, aqui estaria a chamada AJAX para carregar mais itens no DOM
+                console.log('Simulação: Carregando mais itens de galeria...');
+            });
+        }
+    };
+
+    const init = () => {
+        if (DOM.mainGallery) {
+            addEventListeners();
+        }
+    };
+
+    return { init };
+})();
+
+/**
+ * ================================================================================
+ * 7. MÓDULO DE FORMULÁRIO (RSVP)
+ * ================================================================================
+ */
+
+const FormModule = (() => {
+
+    /**
+     * Validação básica do formulário.
+     */
+    const validateForm = (form) => {
+        let isValid = true;
+        const requiredInputs = form.querySelectorAll('input[required], select[required]');
+        
+        requiredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('input-error');
+                isValid = false;
+            } else {
+                input.classList.remove('input-error');
+            }
+            
+            if (input.type === 'email' && input.value.trim() && !/\S+@\S+\.\S+/.test(input.value)) {
+                 input.classList.add('input-error');
+                 isValid = false;
+                 // Em um projeto real, esta validação seria mais robusta
+            }
+        });
+        
+        return isValid;
+    };
+
+    /**
+     * Lida com o envio do formulário.
+     */
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        
+        if (!validateForm(DOM.rsvpForm)) {
+            displayMessage('Por favor, preencha todos os campos obrigatórios corretamente.', 'error');
+            return;
+        }
+
+        // Desabilita o botão para evitar múltiplos envios
+        const submitBtn = DOM.rsvpForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+            // Simulação de envio AJAX (fetch API moderno)
+            const formData = new FormData(DOM.rsvpForm);
+            
+            // Aqui estaria a chamada real para o servidor
+            // const response = await fetch(DOM.rsvpForm.action, {
+            //     method: DOM.rsvpForm.method,
+            //     body: formData
+            // });
+            
+            // Simulação de delay de rede
+            await new Promise(resolve => setTimeout(resolve, 1500)); 
+
+            // Simulação de resposta bem-sucedida
+            const success = Math.random() > 0.1; // 90% de chance de sucesso
+            
+            if (success) {
+                 displayMessage('Confirmação de presença enviada com sucesso! Obrigado.', 'success');
+                 DOM.rsvpForm.reset();
+            } else {
+                 throw new Error('Erro de Conexão. Tente novamente.');
+            }
+
+        } catch (error) {
+            console.error('Erro de envio:', error);
+            displayMessage(`Falha ao enviar: ${error.message || 'Verifique sua conexão.'}`, 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Confirmação';
+        }
+    };
+    
+    /**
+     * Exibe a mensagem de feedback.
+     */
+    const displayMessage = (message, type) => {
+        DOM.formMessage.textContent = message;
+        DOM.formMessage.className = `form-feedback-message form-feedback-${type}`;
+        DOM.formMessage.style.display = 'block';
+
+        // Oculta a mensagem após 5 segundos
+        setTimeout(() => {
+            DOM.formMessage.style.display = 'none';
+        }, 5000);
+    };
+
+    const init = () => {
+        if (DOM.rsvpForm) {
+            DOM.rsvpForm.addEventListener('submit', handleSubmit);
+        }
+    };
+
+    return { init };
+})();
+
+
+/**
+ * ================================================================================
+ * 8. MÓDULO DE PRELOADER
+ * ================================================================================
+ */
+
+const PreloaderModule = (() => {
+
+    /**
+     * Oculta o preloader após o carregamento da página.
+     */
+    const hidePreloader = () => {
+        if (DOM.preloader) {
+            // Garante que o CSS está carregado e que o DOM está pronto para a transição
+            setTimeout(() => {
+                DOM.preloader.classList.add('hidden');
+                document.body.style.overflow = ''; // Permite o scroll
+            }, 500); // Meio segundo de delay para garantir que a transição CSS funcione
+            
+            // Remove o preloader do DOM após a transição
+            setTimeout(() => {
+                DOM.preloader.remove();
+            }, 1000);
+        }
+    };
+    
+    // A função init será chamada no evento 'load' da janela.
+    const init = () => {
+        window.addEventListener('load', hidePreloader);
+    };
+
+    return { init };
+})();
+
+
+/**
+ * ================================================================================
+ * 9. INICIALIZAÇÃO GERAL
+ * ================================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Helpers
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Configurações básicas
+    setYear();
+    
+    // Inicialização dos Módulos
+    NavigationModule.init();
+    CountdownModule.init();
+    CarouselModule.init();
+    LightboxModule.init();
+    FormModule.init();
+    
+    // A ativação das animações de scroll deve ser a última, para garantir que todos os elementos estejam no DOM
+    ScrollAnimationModule.init();
 
-  // --- Header: Mobile menu toggle (accessible) ---
-  const menuToggle = $('#menu-toggle');
-  const mobileMenu = $('#mobile-menu');
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!expanded));
-      if (expanded) {
-        mobileMenu.hidden = true;
-        menuToggle.setAttribute('aria-label', 'Abrir menu');
-        menuToggle.focus();
-      } else {
-        mobileMenu.hidden = false;
-        menuToggle.setAttribute('aria-label', 'Fechar menu');
-        // move focus into menu for keyboard users
-        const firstLink = mobileMenu.querySelector('a');
-        if (firstLink) firstLink.focus();
-      }
-    });
-  }
-
-  // --- Smooth scroll for internal anchors ---
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth', block: 'start' });
-        // close mobile menu if open
-        if (mobileMenu && !mobileMenu.hidden) {
-          mobileMenu.hidden = true;
-          if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-  });
-
-  // --- Countdown (days to ceremony) ---
-  (function initCountdown(){
-    const el = $('#count-days');
-    if (!el) return;
-    // Set target date (example: replace with real event date)
-    const eventDate = new Date();
-    eventDate.setMonth(11); // December (0-based)
-    eventDate.setDate(20);
-    eventDate.setFullYear(new Date().getFullYear());
-    function update() {
-      const now = new Date();
-      const diff = Math.max(0, eventDate - now);
-      const days = Math.floor(diff / (1000*60*60*24));
-      el.textContent = String(days);
+    // O preloader deve ser inicializado no DOMContentLoaded, mas a ação principal é no 'load'
+    PreloaderModule.init();
+    
+    // Inicializa o Tilt.js para os Cards 3D (se a biblioteca estiver carregada)
+    if (window.VanillaTilt) {
+        VanillaTilt.init(document.querySelectorAll(".card-3d"), {
+            max: 10,
+            speed: 800,
+            perspective: 1000,
+            glare: true,
+            "max-glare": 0.3
+        });
+    } else {
+        console.warn("Vanilla-Tilt.js não carregado. O efeito 3D dos cards será desativado.");
     }
-    update();
-    // update every hour (days don't need per-second updates)
-    setInterval(update, 1000 * 60 * 60);
-  })();
-
-  // --- Carousel: basic accessible carousel with keyboard support ---
-  (function initCarousel(){
-    const carousel = document.querySelector('.carousel');
-    if (!carousel) return;
-    const track = carousel.querySelector('.carousel-track');
-    const items = $$('.carousel-item', track);
-    const prevBtn = carousel.querySelector('.carousel-btn.prev');
-    const nextBtn = carousel.querySelector('.carousel-btn.next');
-    const indicators = carousel.querySelector('.carousel-indicators');
-
-    let current = 0;
-    const count = items.length;
-
-    // Create indicators
-    const indicatorButtons = [];
-    items.forEach((it, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'indicator';
-      btn.setAttribute('aria-label', `Ir para slide ${i+1}`);
-      btn.setAttribute('data-index', String(i));
-      indicators.appendChild(btn);
-      indicatorButtons.push(btn);
-      btn.addEventListener('click', () => goTo(i));
-    });
-
-    function updateIndicators(){
-      indicatorButtons.forEach((b,i)=> b.classList.toggle('active', i===current));
-    }
-
-    function goTo(index){
-      current = (index + count) % count;
-      const target = items[current];
-      target.scrollIntoView({behavior: isReducedMotion ? 'auto' : 'smooth', inline:'center'});
-      updateIndicators();
-    }
-
-    prevBtn.addEventListener('click', ()=> goTo(current-1));
-    nextBtn.addEventListener('click', ()=> goTo(current+1));
-
-    // Keyboard navigation
-    track.addEventListener('keydown', (e)=>{
-      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current-1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current+1); }
-    });
-
-    // Autoplay
-    let autoplay = carousel.dataset.autoplay === 'true';
-    let autoplayId = null;
-    const startAutoplay = () => {
-      if (!autoplay || isReducedMotion) return;
-      autoplayId = setInterval(()=> goTo(current+1), 4000);
-    };
-    const stopAutoplay = () => {
-      if (autoplayId) { clearInterval(autoplayId); autoplayId = null; }
-    };
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('focusin', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-    carousel.addEventListener('focusout', startAutoplay);
-
-    // Initialize
-    goTo(0);
-    startAutoplay();
-
-    // Clicking thumbnail opens lightbox (handled below)
-    items.forEach((it, i)=>{
-      const img = it.querySelector('img');
-      if (!img) return;
-      img.addEventListener('click', ()=> openLightbox(i));
-      img.addEventListener('keydown', (e)=> {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
-      });
-      img.tabIndex = 0;
-    });
-  })();
-
-  // --- Lightbox (modal) with focus trap ---
-  const lightbox = $('#lightbox');
-  const lbImg = $('#lightbox-img');
-  const lbCaption = $('#lightbox-caption');
-  const lbClose = $('#lightbox-close');
-  const lbPrev = $('#lightbox-prev');
-  const lbNext = $('#lightbox-next');
-  let lbIndex = 0;
-  const galleryItems = $$('.carousel-item img');
-  function openLightbox(index){
-    lbIndex = (index + galleryItems.length) % galleryItems.length;
-    const img = galleryItems[lbIndex];
-    const src = img.dataset.full || img.src;
-    const alt = img.alt || '';
-    lbImg.src = src;
-    lbImg.alt = alt;
-    lbCaption.textContent = alt;
-    lightbox.setAttribute('aria-hidden', 'false');
-    // Save focussed element to return focus later
-    lightbox._previouslyFocused = document.activeElement;
-    lbClose.focus();
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    lightbox.setAttribute('aria-hidden', 'true');
-    lbImg.src = '';
-    document.body.style.overflow = '';
-    if (lightbox._previouslyFocused) lightbox._previouslyFocused.focus();
-  }
-  function lbShowNext(delta){
-    lbIndex = (lbIndex + delta + galleryItems.length) % galleryItems.length;
-    const img = galleryItems[lbIndex];
-    lbImg.src = img.dataset.full || img.src;
-    lbImg.alt = img.alt || '';
-    lbCaption.textContent = lbImg.alt;
-  }
-
-  if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbPrev) lbPrev.addEventListener('click', ()=> lbShowNext(-1));
-  if (lbNext) lbNext.addEventListener('click', ()=> lbShowNext(1));
-
-  // Close on overlay click (but ignore clicks inside inner)
-  lightbox?.addEventListener('click', (e)=>{
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Keyboard handling for lightbox
-  document.addEventListener('keydown', (e)=>{
-    if (!lightbox || lightbox.getAttribute('aria-hidden') === 'true') return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') lbShowNext(1);
-    if (e.key === 'ArrowLeft') lbShowNext(-1);
-  });
-
-  // --- Simple form validation (front-end) ---
-  const form = $('#contact-form');
-  if (form) {
-    const nameF = $('#name');
-    const emailF = $('#email');
-    const messageF = $('#message');
-    const status = $('#form-status');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let valid = true;
-
-      // reset errors
-      $$('#contact-form .field-error').forEach(el => {
-        el.textContent = ''; el.classList.add('visually-hidden');
-      });
-
-      if (!nameF.value.trim()) {
-        $('#error-name').textContent = 'Por favor, insira seu nome.'; $('#error-name').classList.remove('visually-hidden');
-        valid = false;
-      }
-      if (!emailF.value.trim() || !/^\S+@\S+\.\S+$/.test(emailF.value)) {
-        $('#error-email').textContent = 'E-mail inválido.'; $('#error-email').classList.remove('visually-hidden');
-        valid = false;
-      }
-      if (!messageF.value.trim()) {
-        $('#error-message').textContent = 'Escreva uma mensagem.'; $('#error-message').classList.remove('visually-hidden');
-        valid = false;
-      }
-
-      if (!valid) {
-        status.textContent = 'Corrija os erros acima.'; status.classList.remove('visually-hidden');
-        return;
-      }
-
-      // Simulate successful send (no backend)
-      status.textContent = 'Mensagem enviada. Obrigado!'; status.classList.remove('visually-hidden');
-      form.reset();
-      console.info('Form data (simulated):', {name:nameF.value, email:emailF.value, message:messageF.value});
-    });
-  }
-
-  // --- Footer year auto-update ---
-  const yearEl = $('#year');
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-  // --- focus visible polyfill hint (very small) ---
-  (function focusOutline(){
-    // Add class to body when keyboard used (for :focus-visible like effect)
-    function handleKey(e){
-      if (e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
-      window.removeEventListener('keydown', handleKey);
-    }
-    window.addEventListener('keydown', handleKey);
-  })();
-
-  // --- Developer note ---
-  console.log('Template initialized — Christiano. Replace assets/img/* with optimized images.');
+    
+    console.log("Sistema de Site Corporativo Premium Inicializado com Sucesso. (v1.0)");
 });
+
+/* --- FIM DO ARQUIVO SCRIPT.JS --- */
