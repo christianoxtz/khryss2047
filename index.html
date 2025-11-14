@@ -1,78 +1,242 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!--
+  FILE: index.html
+  PROJECT: Encerramento do Ano Letivo - Template Corporativo Dark Minimal
+  GENERATED_FOR: Usuário (Christiano)
+  LICENSE: MIT
+  NOTES:
+    - Referencia css/style.css e js/script.js
+    - Substitua imagens em /assets/img/ (hero, gallery-01.jpg etc.)
+    - PLACEHOLDER tags marcaram onde inserir redações/mensagens
+-->
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Atitude sobre IA na Educação | Cristiano Paz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b2340" />
+  <title>Encerramento do Ano Letivo • [Colégio]</title>
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Minimal metadata: author and description -->
+  <meta name="author" content="Christiano">
+  <meta name="description" content="Encerramento do Ano Letivo — Retrospectiva, galeria e mensagens.">
+
+  <!-- Icons (inline svg used later) -->
 </head>
 <body>
-    <div class="main-container">
-        <!-- Introdução -->
-        <section class="intro-section" id="intro">
-            <div class="intro-content">
-                <div class="logo">IA-EDU</div>
-                <h1>Teste de Atitude sobre IA na Educação</h1>
-                <h2>Como você lida com a Inteligência Artificial na escola?</h2>
+  <a class="skip-link visually-hidden" href="#main">Ir para o conteúdo</a>
 
-                <div class="author-info">
-                    <div class="profile-icon">👤</div>
-                    <div>
-                        <p><strong>Cristiano Paz</strong></p>
-                        <p>Colégio Estadual Padre Cláudio Morelli</p>
-                        <p>Disciplina: Programação</p>
-                    </div>
-                </div>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- inline SVG logo (simple) -->
+        <svg width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect width="24" height="24" rx="4" fill="var(--accent)"/>
+          <path d="M4 16 L12 6 L20 16" stroke="var(--navy)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <h1 class="site-title">Encerramento • Colégio</h1>
+      </div>
 
-                <div class="intro-text">
-                    <p>Este teste avalia sua postura e atitudes em relação ao uso de Inteligência Artificial no contexto educacional.</p>
-                    <p>Você enfrentará 11 situações hipotéticas que testarão seu posicionamento crítico sobre IA na aprendizagem.</p>
-                </div>
+      <nav class="primary-nav" role="navigation" aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#retrospectiva">Retrospectiva</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#mensagens">Mensagens</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+        </ul>
+      </nav>
 
-                <button class="start-btn" id="startBtn">Iniciar Teste</button>
-            </div>
-        </section>
-
-        <!-- Teste -->
-        <section class="test-section" id="test" style="display:none;">
-            <div class="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-title">IA-EDU TEST 2.0</div>
-                    <div class="terminal-year">2025</div>
-                </div>
-                <div class="terminal-body" id="terminal-body">
-                    <!-- Conteúdo será injetado aqui via script.js -->
-                </div>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <span class="progress-text" id="progressText">Pergunta 1 de 11</span>
-            </div>
-        </section>
-
-        <!-- Resultado -->
-        <section class="result-section" id="result" style="display:none;">
-            <div class="result-card">
-                <h2>Resultado do Teste</h2>
-                <div class="result-content" id="resultContent">
-                    <!-- Resultado será injetado aqui via script.js -->
-                </div>
-                <div class="result-actions">
-                    <button class="retry-btn" id="retryBtn">Refazer Teste</button>
-                    <button class="about-btn" id="aboutBtn">Sobre o Projeto</button>
-                </div>
-            </div>
-        </section>
+      <!-- Accessible hamburger button -->
+      <button id="menu-toggle" class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu">
+        <!-- hamburger icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
 
-    <!-- Efeitos Visuais -->
-    <div class="background-effects">
-        <div class="digital-rain"></div>
-        <div class="neon-grid"></div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu" hidden>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#retrospectiva">Retrospectiva</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#mensagens">Mensagens</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+      </ul>
     </div>
+  </header>
 
-    <script src="script.js"></script>
+  <!-- HERO -->
+  <section id="home" class="hero" aria-labelledby="hero-title">
+    <picture class="hero-media">
+      <!-- Provide AVIF/WebP in your assets for performance; fallback jpg -->
+      <source srcset="assets/img/hero.avif" type="image/avif">
+      <source srcset="assets/img/hero.webp" type="image/webp">
+      <img src="assets/img/hero.jpg" alt="Alunos comemorando o encerramento do ano letivo" loading="eager">
+    </picture>
+    <div class="hero-content container">
+      <h2 id="hero-title" class="hero-title">Encerramento do Ano Letivo</h2>
+      <p class="hero-sub">Uma retrospectiva dos momentos que construíram nosso ano.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#galeria">Ver Galeria</a>
+        <a class="btn btn-ghost" href="#agenda">Programação</a>
+      </div>
+
+      <!-- Countdown: days to ceremony -->
+      <div class="countdown" aria-live="polite" aria-atomic="true">
+        <span id="count-days">--</span> dias até a cerimônia
+      </div>
+    </div>
+  </section>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+
+      <!-- RETROSPECTIVA -->
+      <section id="retrospectiva" aria-labelledby="retrospectiva-title" class="section">
+        <h3 id="retrospectiva-title" class="section-title">Retrospectiva</h3>
+        <div class="grid grid-2">
+          <article class="card">
+            <h4>Momentos marcantes</h4>
+            <p><!-- PLACEHOLDER: inserir redações/resumo de retrospectiva aqui --></p>
+          </article>
+
+          <aside class="card card-muted">
+            <h4>Agradecimentos</h4>
+            <p><!-- PLACEHOLDER: inserir mensagens de professores e agradecimentos --></p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- GALERIA -->
+      <section id="galeria" aria-labelledby="galeria-title" class="section">
+        <h3 id="galeria-title" class="section-title">Galeria</h3>
+
+        <div class="carousel" data-autoplay="true" aria-roledescription="carousel">
+          <button class="carousel-btn prev" aria-label="Slide anterior">&lt;</button>
+          <div class="carousel-track" tabindex="0">
+            <!-- Each .carousel-item contains an image thumbnail; lazy-load for non-visible -->
+            <div class="carousel-item">
+              <img src="assets/img/gallery-01.jpg" alt="Foto 1" loading="lazy" data-full="assets/img/gallery-01-large.jpg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/gallery-02.jpg" alt="Foto 2" loading="lazy" data-full="assets/img/gallery-02-large.jpg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/gallery-03.jpg" alt="Foto 3" loading="lazy" data-full="assets/img/gallery-03-large.jpg">
+            </div>
+            <!-- Add more items as needed -->
+          </div>
+          <button class="carousel-btn next" aria-label="Próximo slide">&gt;</button>
+
+          <div class="carousel-indicators" role="tablist" aria-label="Indicadores do carrossel"></div>
+        </div>
+      </section>
+
+      <!-- MENSAGENS -->
+      <section id="mensagens" aria-labelledby="mensagens-title" class="section">
+        <h3 id="mensagens-title" class="section-title">Mensagens</h3>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h4>Aluno destaque</h4>
+            <p><!-- PLACEHOLDER: Mensagem do aluno --></p>
+          </div>
+          <div class="card">
+            <h4>Palavras do Diretor</h4>
+            <p><!-- PLACEHOLDER: Mensagem dos professores/diretor --></p>
+          </div>
+          <div class="card">
+            <h4>Galeria de Áudios</h4>
+            <p><!-- PLACEHOLDER: pequenos áudios ou homenagens --></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section id="agenda" aria-labelledby="agenda-title" class="section">
+        <h3 id="agenda-title" class="section-title">Programação</h3>
+
+        <ul class="agenda-list">
+          <li><strong>09:00</strong> — Abertura com coral</li>
+          <li><strong>10:00</strong> — Premiações</li>
+          <li><strong>11:30</strong> — Encerramento oficial</li>
+        </ul>
+
+        <form id="contact-form" class="form" novalidate aria-labelledby="contact-form-title">
+          <h4 id="contact-form-title">Deixe uma mensagem</h4>
+          <div class="form-row">
+            <label for="name">Nome</label>
+            <input id="name" name="name" required />
+            <span class="field-error visually-hidden" id="error-name" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" required />
+            <span class="field-error visually-hidden" id="error-email" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <span class="field-error visually-hidden" id="error-message" aria-live="polite"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="reset" class="btn btn-ghost">Limpar</button>
+          </div>
+
+          <div id="form-status" class="form-status visually-hidden" aria-live="polite"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX / MODAL for gallery -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-inner" role="document">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Fechar">&times;</button>
+      <figure>
+        <img id="lightbox-img" src="" alt="">
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <div class="lightbox-controls">
+        <button id="lightbox-prev" aria-label="Imagem anterior">&lt;</button>
+        <button id="lightbox-next" aria-label="Próxima imagem">&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Colégio • Encerramento do Ano Letivo — Todos os direitos reservados.</p>
+      <p class="muted">Desenvolvido por Christiano • Template minimal dark</p>
+    </div>
+  </footer>
+
+  <!-- Project meta as JSON for automation or README generation -->
+  <script type="application/json" id="project-meta">
+  {
+    "title": "Encerramento do Ano Letivo - Template Corporativo Dark Minimal",
+    "palette": {"navy":"#0b2340","white":"#ffffff","accent":"#2bb3c0","muted":"#718096"},
+    "author": "Christiano",
+    "files": ["index.html","css/style.css","js/script.js"],
+    "deploy": "Usar GitHub Pages: push para branch main; em Settings -> Pages selecionar / (root) como source",
+    "notes": "Substituir assets/img/* por fotos otimizadas; ver README.md para comandos git."
+  }
+  </script>
+
+  <!-- Main script -->
+  <script src="js/script.js" defer></script>
 </body>
 </html>
